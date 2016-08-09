@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
+		9622E36B1D59436700CD1300 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9622E3691D59436700CD1300 /* Main.storyboard */; };
+		9622E36D1D59436700CD1300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9622E36C1D59436700CD1300 /* Assets.xcassets */; };
+		9622E3701D59436700CD1300 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */; };
+		9622E37A1D59438000CD1300 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3771D59438000CD1300 /* ParseUI.framework */; };
+		9622E37B1D59438000CD1300 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3781D59438000CD1300 /* Bolts.framework */; };
+		9622E37C1D59438000CD1300 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3791D59438000CD1300 /* Parse.framework */; };
+		9622E37F1D59472000CD1300 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E37E1D59472000CD1300 /* libsqlite3.tbd */; };
+		9622E3811D59476600CD1300 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3801D59476600CD1300 /* libz.tbd */; };
+		9622E3831D59477B00CD1300 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3821D59477B00CD1300 /* SystemConfiguration.framework */; };
+		9622E3851D59478800CD1300 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3841D59478800CD1300 /* StoreKit.framework */; };
+		9622E3871D59479100CD1300 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3861D59479100CD1300 /* Security.framework */; };
+		9622E3891D59479D00CD1300 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3881D59479D00CD1300 /* QuartzCore.framework */; };
+		9622E38B1D5947A900CD1300 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E38A1D5947A900CD1300 /* CoreLocation.framework */; };
+		9622E38D1D5947B300CD1300 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E38C1D5947B300CD1300 /* CoreGraphics.framework */; };
+		9622E38F1D5947C000CD1300 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E38E1D5947C000CD1300 /* CFNetwork.framework */; };
+		9622E3911D5947CA00CD1300 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3901D5947CA00CD1300 /* AudioToolbox.framework */; };
+		9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3961D594B4B00CD1300 /* SignInViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9622E3621D59436700CD1300 /* LHL-Neighbourhood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LHL-Neighbourhood.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9622E3651D59436700CD1300 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9622E36A1D59436700CD1300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9622E36C1D59436700CD1300 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9622E36F1D59436700CD1300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9622E3711D59436700CD1300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9622E3771D59438000CD1300 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../ParseUI.framework; sourceTree = "<group>"; };
+		9622E3781D59438000CD1300 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Bolts.framework; sourceTree = "<group>"; };
+		9622E3791D59438000CD1300 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Parse.framework; sourceTree = "<group>"; };
+		9622E37E1D59472000CD1300 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9622E3801D59476600CD1300 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9622E3821D59477B00CD1300 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9622E3841D59478800CD1300 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9622E3861D59479100CD1300 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9622E3881D59479D00CD1300 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9622E38A1D5947A900CD1300 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9622E38C1D5947B300CD1300 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9622E38E1D5947C000CD1300 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9622E3901D5947CA00CD1300 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9622E3961D594B4B00CD1300 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9622E35F1D59436700CD1300 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9622E3911D5947CA00CD1300 /* AudioToolbox.framework in Frameworks */,
+				9622E38F1D5947C000CD1300 /* CFNetwork.framework in Frameworks */,
+				9622E38D1D5947B300CD1300 /* CoreGraphics.framework in Frameworks */,
+				9622E38B1D5947A900CD1300 /* CoreLocation.framework in Frameworks */,
+				9622E3891D59479D00CD1300 /* QuartzCore.framework in Frameworks */,
+				9622E3871D59479100CD1300 /* Security.framework in Frameworks */,
+				9622E3851D59478800CD1300 /* StoreKit.framework in Frameworks */,
+				9622E3831D59477B00CD1300 /* SystemConfiguration.framework in Frameworks */,
+				9622E3811D59476600CD1300 /* libz.tbd in Frameworks */,
+				9622E37F1D59472000CD1300 /* libsqlite3.tbd in Frameworks */,
+				9622E37A1D59438000CD1300 /* ParseUI.framework in Frameworks */,
+				9622E37C1D59438000CD1300 /* Parse.framework in Frameworks */,
+				9622E37B1D59438000CD1300 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9622E3591D59436700CD1300 = {
+			isa = PBXGroup;
+			children = (
+				9622E3641D59436700CD1300 /* LHL-Neighbourhood */,
+				9622E37D1D59439D00CD1300 /* Frameworks */,
+				9622E3631D59436700CD1300 /* Products */,
+				9622E3951D5949C900CD1300 /* Asset */,
+			);
+			sourceTree = "<group>";
+		};
+		9622E3631D59436700CD1300 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3621D59436700CD1300 /* LHL-Neighbourhood.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9622E3641D59436700CD1300 /* LHL-Neighbourhood */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3941D59499D00CD1300 /* Controller */,
+				9622E3921D59497A00CD1300 /* Model */,
+				9622E3931D59498100CD1300 /* View */,
+			);
+			path = "LHL-Neighbourhood";
+			sourceTree = "<group>";
+		};
+		9622E37D1D59439D00CD1300 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3801D59476600CD1300 /* libz.tbd */,
+				9622E37E1D59472000CD1300 /* libsqlite3.tbd */,
+				9622E3901D5947CA00CD1300 /* AudioToolbox.framework */,
+				9622E38E1D5947C000CD1300 /* CFNetwork.framework */,
+				9622E38C1D5947B300CD1300 /* CoreGraphics.framework */,
+				9622E38A1D5947A900CD1300 /* CoreLocation.framework */,
+				9622E3881D59479D00CD1300 /* QuartzCore.framework */,
+				9622E3861D59479100CD1300 /* Security.framework */,
+				9622E3841D59478800CD1300 /* StoreKit.framework */,
+				9622E3821D59477B00CD1300 /* SystemConfiguration.framework */,
+				9622E3791D59438000CD1300 /* Parse.framework */,
+				9622E3771D59438000CD1300 /* ParseUI.framework */,
+				9622E3781D59438000CD1300 /* Bolts.framework */,
+			);
+			name = Frameworks;
+			path = "LHL-Neighbourhood";
+			sourceTree = "<group>";
+		};
+		9622E3921D59497A00CD1300 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3651D59436700CD1300 /* AppDelegate.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9622E3931D59498100CD1300 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3691D59436700CD1300 /* Main.storyboard */,
+				9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9622E3941D59499D00CD1300 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3961D594B4B00CD1300 /* SignInViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9622E3951D5949C900CD1300 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				9622E3711D59436700CD1300 /* Info.plist */,
+				9622E36C1D59436700CD1300 /* Assets.xcassets */,
+			);
+			name = Asset;
+			path = "LHL-Neighbourhood";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9622E3611D59436700CD1300 /* LHL-Neighbourhood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9622E3741D59436700CD1300 /* Build configuration list for PBXNativeTarget "LHL-Neighbourhood" */;
+			buildPhases = (
+				9622E35E1D59436700CD1300 /* Sources */,
+				9622E35F1D59436700CD1300 /* Frameworks */,
+				9622E3601D59436700CD1300 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LHL-Neighbourhood";
+			productName = "LHL-Neighbourhood";
+			productReference = 9622E3621D59436700CD1300 /* LHL-Neighbourhood.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9622E35A1D59436700CD1300 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Asuka Nakagawa";
+				TargetAttributes = {
+					9622E3611D59436700CD1300 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 6A3B9S8TK9;
+					};
+				};
+			};
+			buildConfigurationList = 9622E35D1D59436700CD1300 /* Build configuration list for PBXProject "LHL-Neighbourhood" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9622E3591D59436700CD1300;
+			productRefGroup = 9622E3631D59436700CD1300 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9622E3611D59436700CD1300 /* LHL-Neighbourhood */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9622E3601D59436700CD1300 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9622E3701D59436700CD1300 /* LaunchScreen.storyboard in Resources */,
+				9622E36D1D59436700CD1300 /* Assets.xcassets in Resources */,
+				9622E36B1D59436700CD1300 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9622E35E1D59436700CD1300 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
+				9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9622E3691D59436700CD1300 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9622E36A1D59436700CD1300 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9622E36F1D59436700CD1300 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9622E3721D59436700CD1300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9622E3731D59436700CD1300 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9622E3751D59436700CD1300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9622E3761D59436700CD1300 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9622E35D1D59436700CD1300 /* Build configuration list for PBXProject "LHL-Neighbourhood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9622E3721D59436700CD1300 /* Debug */,
+				9622E3731D59436700CD1300 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9622E3741D59436700CD1300 /* Build configuration list for PBXNativeTarget "LHL-Neighbourhood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9622E3751D59436700CD1300 /* Debug */,
+				9622E3761D59436700CD1300 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9622E35A1D59436700CD1300 /* Project object */;
+}
