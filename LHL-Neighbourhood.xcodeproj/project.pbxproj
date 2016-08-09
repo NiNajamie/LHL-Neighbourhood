@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0790C7D01D596C790095AA0F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CC1D596C790095AA0F /* Fabric.framework */; };
+		0790C7D11D596C790095AA0F /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CD1D596C790095AA0F /* DigitsKit.framework */; };
+		0790C7D21D596C790095AA0F /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */; };
+		0790C7D31D596C790095AA0F /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CF1D596C790095AA0F /* TwitterCore.framework */; };
 		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
 		9622E36B1D59436700CD1300 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9622E3691D59436700CD1300 /* Main.storyboard */; };
 		9622E36D1D59436700CD1300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9622E36C1D59436700CD1300 /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0790C7CC1D596C790095AA0F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		0790C7CD1D596C790095AA0F /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
+		0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
+		0790C7CF1D596C790095AA0F /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		9622E3621D59436700CD1300 /* LHL-Neighbourhood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LHL-Neighbourhood.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9622E3651D59436700CD1300 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9622E36A1D59436700CD1300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,10 +70,13 @@
 				9622E3891D59479D00CD1300 /* QuartzCore.framework in Frameworks */,
 				9622E3871D59479100CD1300 /* Security.framework in Frameworks */,
 				9622E3851D59478800CD1300 /* StoreKit.framework in Frameworks */,
+				0790C7D01D596C790095AA0F /* Fabric.framework in Frameworks */,
 				9622E3831D59477B00CD1300 /* SystemConfiguration.framework in Frameworks */,
+				0790C7D11D596C790095AA0F /* DigitsKit.framework in Frameworks */,
 				9622E3811D59476600CD1300 /* libz.tbd in Frameworks */,
 				9622E37F1D59472000CD1300 /* libsqlite3.tbd in Frameworks */,
 				9622E37A1D59438000CD1300 /* ParseUI.framework in Frameworks */,
+				0790C7D31D596C790095AA0F /* TwitterCore.framework in Frameworks */,
 				9622E37C1D59438000CD1300 /* Parse.framework in Frameworks */,
 				9622E37B1D59438000CD1300 /* Bolts.framework in Frameworks */,
 			);
@@ -74,9 +85,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0790C7CB1D596C530095AA0F /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				0790C7CC1D596C790095AA0F /* Fabric.framework */,
+				0790C7CD1D596C790095AA0F /* DigitsKit.framework */,
+				0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */,
+				0790C7CF1D596C790095AA0F /* TwitterCore.framework */,
+			);
+			name = Fabric;
+			sourceTree = "<group>";
+		};
 		9622E3591D59436700CD1300 = {
 			isa = PBXGroup;
 			children = (
+				0790C7CB1D596C530095AA0F /* Fabric */,
 				9622E3641D59436700CD1300 /* LHL-Neighbourhood */,
 				9622E37D1D59439D00CD1300 /* Frameworks */,
 				9622E3631D59436700CD1300 /* Products */,
@@ -168,6 +191,7 @@
 				9622E35E1D59436700CD1300 /* Sources */,
 				9622E35F1D59436700CD1300 /* Frameworks */,
 				9622E3601D59436700CD1300 /* Resources */,
+				0790C7CA1D596C030095AA0F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -217,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0790C7D21D596C790095AA0F /* DigitsKitResources.bundle in Resources */,
 				9622E3701D59436700CD1300 /* LaunchScreen.storyboard in Resources */,
 				9622E36D1D59436700CD1300 /* Assets.xcassets in Resources */,
 				9622E36B1D59436700CD1300 /* Main.storyboard in Resources */,
@@ -224,6 +249,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0790C7CA1D596C030095AA0F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 25f0c25c858c8f33a24e8fa275c1e006e4a1513d 6fc4471db7a449f7415876381ab5cda46e23d061780d5f81b91d1275c9c216f4";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9622E35E1D59436700CD1300 /* Sources */ = {
@@ -389,6 +430,7 @@
 				9622E3761D59436700CD1300 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
