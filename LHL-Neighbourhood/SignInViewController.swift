@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import DigitsKit
+import IQKeyboardManagerSwift
 
 
 class SignInViewController: UITableViewController {
@@ -30,8 +31,15 @@ class SignInViewController: UITableViewController {
         authButton.center = self.view.center
         self.view.addSubview(authButton)
 
+        // Register Subclass
+        TextMessage.registerSubclass()
         
+        // will enable keyboard manager
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
 
+//        let sections = [Section(displayName: "Buy/Sell", key: "buy_sell")]
+        
 //        let testObject = PFObject(className: "TestObject")
 //        testObject["foo"] = "bar"
 //        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
