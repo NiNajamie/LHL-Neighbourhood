@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */; };
 		0790C7D01D596C790095AA0F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CC1D596C790095AA0F /* Fabric.framework */; };
 		0790C7D11D596C790095AA0F /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CD1D596C790095AA0F /* DigitsKit.framework */; };
 		0790C7D21D596C790095AA0F /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */; };
 		0790C7D31D596C790095AA0F /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CF1D596C790095AA0F /* TwitterCore.framework */; };
+		07FC125B1D5BD5CC00989AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC125A1D5BD5CC00989AFB /* User.swift */; };
 		5328413C7BFFD558A952C3A2 /* Pods_LHL_Neighbourhood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */; };
 		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
 		9622E36B1D59436700CD1300 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9622E3691D59436700CD1300 /* Main.storyboard */; };
@@ -39,10 +41,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0790C7CC1D596C790095AA0F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		0790C7CD1D596C790095AA0F /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		0790C7CF1D596C790095AA0F /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		07FC125A1D5BD5CC00989AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHL_Neighbourhood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5813EFB7EB3CE609600BCECE /* Pods-LHL-Neighbourhood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHL-Neighbourhood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHL-Neighbourhood/Pods-LHL-Neighbourhood.debug.xcconfig"; sourceTree = "<group>"; };
 		9622E3621D59436700CD1300 /* LHL-Neighbourhood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LHL-Neighbourhood.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +184,7 @@
 			children = (
 				9622E3651D59436700CD1300 /* AppDelegate.swift */,
 				96CC91561D5A38ED002288FF /* Section.swift */,
+				07FC125A1D5BD5CC00989AFB /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			children = (
 				9622E3961D594B4B00CD1300 /* SignInViewController.swift */,
 				96CC91781D5ACDB9002288FF /* BoardViewController.swift */,
+				078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */,
 				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
 				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
 			);
@@ -366,8 +372,10 @@
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,
+				07FC125B1D5BD5CC00989AFB /* User.swift in Sources */,
 				96CC91771D5AC29B002288FF /* ChatViewController.swift in Sources */,
 				9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */,
+				078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */,
 				96CC91791D5ACDB9002288FF /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +490,7 @@
 			baseConfigurationReference = 5813EFB7EB3CE609600BCECE /* Pods-LHL-Neighbourhood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -12,48 +12,100 @@ import DigitsKit
 import IQKeyboardManagerSwift
 
 
-class SignInViewController: UITableViewController {
-
+class SignInViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var fullnameTextfield: UITextField!
+    @IBOutlet weak var userNameTextfield: UITextField!
+    
+    @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var userTypeSegmentControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let authButton = DGTAuthenticateButton(authenticationCompletion: { (session: DGTSession?, error: NSError?) in
-            if (session != nil) {
-                // TODO: associate the session userID with your user model
-                let message = "Phone number: \(session!.phoneNumber)"
-                let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: .None))
-                self.presentViewController(alertController, animated: true, completion: .None)
-            } else {
-                NSLog("Authentication error: %@", error!.localizedDescription)
-            }
-        })
-        authButton.center = self.view.center
-        self.view.addSubview(authButton)
-
+        self.userTypeSegmentControl.selectedSegmentIndex  = 0
+        
         // Register Subclass
-        TextMessage.registerSubclass()
+       // TextMessage.registerSubclass()
         
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-
-//        let sections = [Section(displayName: "Buy/Sell", key: "buy_sell")]
         
-//        let testObject = PFObject(className: "TestObject")
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            print("Object has been saved.")
-//        }
-
     }
-
+ //Mark: Login / Sign Up Action
+    
+    @IBAction func loginPressed(sender: UIButton) {
+//        self.performSegueWithIdentifier("segueToLoginVC", sender: sender)
+    }
+    
+    
+    @IBAction func signUpPressed(sender: UIButton) {
+        
+        //CHECK IF FIELDS ARE EMPTY
+        
+        if (passwordTextfield.text?.characters.count == 0 || userNameTextfield.text?.characters.count == 0 || fullnameTextfield.text?.characters.count == 0){
+            
+            let alertController = UIAlertController(title: "Error", message:
+                "Fields can not be empty!!!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        let user = PFUser()
+        user.username = userNameTextfield.text!
+        user.password = passwordTextfield.text!
+        user["residentName"] = fullnameTextfield.text!
+        
+        if  self.userTypeSegmentControl.selectedSegmentIndex == 0
+        {
+        user["manager"] = false
+        }
+        else
+        {
+        user["manager"] = true
+        }
+        
+        user.signUpInBackgroundWithBlock{
+            (result, error) -> Void in
+            if error == nil && result == true {
+                print("SAVED OBJECT")
+                //GO TO HOMEPAGE perform segue to Login
+                   self.performSegueToHomepage()
+                
+            }
+            else
+            {
+               print(error)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func segmentPressed(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 1
+        {
+            self.view.backgroundColor = UIColor.lightGrayColor()
+        }
+    }
+    
+    //resign as first responder
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        userNameTextfield.resignFirstResponder()
+        passwordTextfield.resignFirstResponder()
+    }
 
+//    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return false
+//    }
+//    
     /*
     // MARK: - Navigation
 
@@ -63,5 +115,9 @@ class SignInViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func performSegueToHomepage() {
+        
+        performSegueWithIdentifier("segueToLoginVC", sender: self)
+        }
 
 }
