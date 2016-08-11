@@ -8,8 +8,10 @@
 
 import UIKit
 import Parse
+import IQKeyboardManagerSwift
 
-class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
+class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -32,6 +34,11 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self
+        
+        // will enable keyboard manager
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+
     }
 
     
@@ -66,7 +73,8 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.navigationController!.popViewControllerAnimated(true)
     }
     
-    //resign as first responder
+    
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         nameTextField.resignFirstResponder()
         availabilityTextField.resignFirstResponder()

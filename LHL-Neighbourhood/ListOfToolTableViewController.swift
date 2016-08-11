@@ -45,7 +45,7 @@ class ListOfToolTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let tool = toolArray[indexPath.row]
+        _ = toolArray[indexPath.row]
         
         return cell
     }
