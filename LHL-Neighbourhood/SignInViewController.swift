@@ -27,8 +27,7 @@ class SignInViewController: UIViewController {
         
         self.userTypeSegmentControl.selectedSegmentIndex  = 0
         
-        // Register Subclass
-       // TextMessage.registerSubclass()
+
         
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true

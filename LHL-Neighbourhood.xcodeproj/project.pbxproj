@@ -32,6 +32,8 @@
 		9622E38F1D5947C000CD1300 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E38E1D5947C000CD1300 /* CFNetwork.framework */; };
 		9622E3911D5947CA00CD1300 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3901D5947CA00CD1300 /* AudioToolbox.framework */; };
 		9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3961D594B4B00CD1300 /* SignInViewController.swift */; };
+		96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */; };
+		96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0BB11D5CFBE300732DF4 /* Tool.swift */; };
 		96CC91571D5A38ED002288FF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC91561D5A38ED002288FF /* Section.swift */; };
 		96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC91741D5AC1DE002288FF /* TextMessage.swift */; };
 		96CC91771D5AC29B002288FF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC91761D5AC29B002288FF /* ChatViewController.swift */; };
@@ -69,6 +71,8 @@
 		9622E38E1D5947C000CD1300 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9622E3901D5947CA00CD1300 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9622E3961D594B4B00CD1300 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToolViewController.swift; sourceTree = "<group>"; };
+		96AA0BB11D5CFBE300732DF4 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		96CC91561D5A38ED002288FF /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		96CC91741D5AC1DE002288FF /* TextMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
 		96CC91761D5AC29B002288FF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				9622E3651D59436700CD1300 /* AppDelegate.swift */,
 				96CC91561D5A38ED002288FF /* Section.swift */,
 				07FC125A1D5BD5CC00989AFB /* User.swift */,
+				96AA0BB11D5CFBE300732DF4 /* Tool.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */,
 				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
 				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
+				96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -369,6 +375,8 @@
 			files = (
 				96CC917D1D5ACE6C002288FF /* DetailOfToolViewController.swift in Sources */,
 				96CC91571D5A38ED002288FF /* Section.swift in Sources */,
+				96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */,
+				96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */,
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,
