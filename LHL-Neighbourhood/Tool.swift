@@ -9,17 +9,33 @@
 import UIKit
 import Parse
 
-struct Tool {
-    var name: String
-    var photo: PFFile
-    var postedBy: PFUser
-    var category: String
-    var sectionStr: String
-    var availability: String
-    var price: String
+class Tool: PFObject, PFSubclassing {
     
+    
+    @NSManaged var name: String
+    @NSManaged var photo: PFFile
+    @NSManaged var postedBy: PFUser
+    @NSManaged var category: String
+    @NSManaged var sectionStr: String
+    @NSManaged var availability: String
+    @NSManaged var price: String
     
     static func parseClassName() -> String {
         return "Tool"
     }
+    
+    
+    convenience init(name: String, photo: PFFile, category: String, sectionStr: String, availability: String, price: String, postedBy: PFUser) {
+        
+        self.init()
+        self.name = name
+        self.photo = photo
+        self.category = category
+        self.sectionStr = sectionStr
+        self.availability = availability
+        self.price = price
+        self.postedBy = postedBy
+    }
+    
+    
 }

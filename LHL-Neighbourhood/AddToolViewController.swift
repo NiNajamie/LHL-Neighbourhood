@@ -84,10 +84,14 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
+        if (PFUser.currentUser() == nil) {
+            print("User is nil")
+        }
+        
         let tool = PFObject(className: "Tool")
         
         tool["name"] = nameTextField.text
-    //        tool["postedBy"] = PFUser.currentUser()
+        tool["postedBy"] = PFUser.currentUser()
         tool["category"] = catSecList[0][categoryPickerView.selectedRowInComponent(0)]
         tool["sectionStr"] = catSecList[1][categoryPickerView.selectedRowInComponent(1)]
         tool["availability"] = availabilityTextField.text
