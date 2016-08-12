@@ -25,28 +25,20 @@ class LoginViewController: UIViewController {
         //CHECK IF EMPTY
         
         if (password.text?.characters.count == 0 || userName.text?.characters.count == 0){
-            
-            let alertController = UIAlertController(title: "Error", message:
-                "Fields can not be empty!!!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+        self.showAlertOnError("Error", message: "Fields can not be empty!!!" )
         }
         
         PFUser.logInWithUsernameInBackground(userName.text!, password: password.text!) { (user, error) -> Void in
             if let loggedInUser = user
             {
-                //take to homepage perform segue
+//                self.showAlertOnSuccess("Welcome",message: "On Your Way to Log in Screen")
+                //take user to homepage perform segue
                 self.performSegueToHomepage()
                 print("LoggedIn")
             }
             else
             {
-                let alertController = UIAlertController(title: "Invalid User", message:
-                    "User Doesn't Exit!!!", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
+             self.showAlertOnError("Invalid User", message: "User Doesn't Exit - Sign Up!!!")
             }
             
         }
@@ -61,14 +53,13 @@ class LoginViewController: UIViewController {
         
         performSegueWithIdentifier("segueToHome", sender: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    func showAlertOnError(title: String, message: String){
+    
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
-    */
 
 }

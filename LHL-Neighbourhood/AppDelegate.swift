@@ -22,9 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         User.registerSubclass()
         TextMessage.registerSubclass()
+        ManagerPost.registerSubclass()
         Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
         //Fabric
 //        Fabric.with([Digits.self])
+        //
+        let pageController = UIPageControl.appearance()
+        pageController.pageIndicatorTintColor = UIColor.lightGrayColor()
+        
+        pageController.currentPageIndicatorTintColor=UIColor.blackColor()
+        pageController.backgroundColor = UIColor.whiteColor()
         return true
     }
 

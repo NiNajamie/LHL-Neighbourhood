@@ -27,18 +27,14 @@ class SignInViewController: UIViewController {
         
         self.userTypeSegmentControl.selectedSegmentIndex  = 0
         
-        // Register Subclass
-       // TextMessage.registerSubclass()
-        
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
     }
- //Mark: Login / Sign Up Action
-    
+    //Mark: Login / Sign Up Action
     @IBAction func loginPressed(sender: UIButton) {
-//        self.performSegueWithIdentifier("segueToLoginVC", sender: sender)
+        //Perform segue on through main storyboard
     }
     
     
@@ -48,11 +44,7 @@ class SignInViewController: UIViewController {
         
         if (passwordTextfield.text?.characters.count == 0 || userNameTextfield.text?.characters.count == 0 || fullnameTextfield.text?.characters.count == 0){
             
-            let alertController = UIAlertController(title: "Error", message:
-                "Fields can not be empty!!!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.showAlertOnError("Error", message: "Fields can not be empty!!!")
         }
         
         let user = PFUser()
@@ -62,11 +54,11 @@ class SignInViewController: UIViewController {
         
         if  self.userTypeSegmentControl.selectedSegmentIndex == 0
         {
-        user["manager"] = false
+            user["manager"] = false
         }
         else
         {
-        user["manager"] = true
+            user["manager"] = true
         }
         
         user.signUpInBackgroundWithBlock{
@@ -74,12 +66,12 @@ class SignInViewController: UIViewController {
             if error == nil && result == true {
                 print("SAVED OBJECT")
                 //GO TO HOMEPAGE perform segue to Login
-                   self.performSegueToHomepage()
-                
+                self.performSegueToHomepage()
+                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: "Successful Login :)")
             }
             else
             {
-               print(error)
+                print(error)
             }
         }
     }
@@ -94,6 +86,9 @@ class SignInViewController: UIViewController {
         {
             self.view.backgroundColor = UIColor.lightGrayColor()
         }
+        if sender.selectedSegmentIndex == 0 {
+            self.view.backgroundColor = UIColor.yellowColor()
+        }
     }
     
     //resign as first responder
@@ -101,23 +96,33 @@ class SignInViewController: UIViewController {
         userNameTextfield.resignFirstResponder()
         passwordTextfield.resignFirstResponder()
     }
-
-//    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return false
-//    }
-//    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     func performSegueToHomepage() {
-        
         performSegueWithIdentifier("segueToLoginVC", sender: self)
-        }
-
+    }
+    
+    func showAlertOnSuccessThenDisappear(title: String, message: String){
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        let delay = 1.9 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            alertController.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+    }
+    
+    func showAlertOnError(title: String, message: String){
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    func sayWelcomeUser(personName: String) -> String {
+        return "Welcome, \(personName)"
+    }
 }
