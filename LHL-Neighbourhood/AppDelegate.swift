@@ -22,7 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         User.registerSubclass()
         TextMessage.registerSubclass()
+<<<<<<< HEAD
         ManagerPost.registerSubclass()
+=======
+        Tool.registerSubclass()
+>>>>>>> f93a721f7734b0791dc3a0c7ddd7cf6d0b333ff2
         Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
         //Fabric
 //        Fabric.with([Digits.self])
