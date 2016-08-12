@@ -26,12 +26,6 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.userTypeSegmentControl.selectedSegmentIndex  = 0
-        
-<<<<<<< HEAD
-=======
-
-        
->>>>>>> f93a721f7734b0791dc3a0c7ddd7cf6d0b333ff2
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
