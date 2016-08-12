@@ -390,12 +390,9 @@
 			files = (
 				96CC917D1D5ACE6C002288FF /* DetailOfToolViewController.swift in Sources */,
 				96CC91571D5A38ED002288FF /* Section.swift in Sources */,
-<<<<<<< HEAD
 				07A7EAA11D5DA1E500A1AE33 /* ManagerPost.swift in Sources */,
-=======
 				96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */,
 				96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */,
->>>>>>> f93a721f7734b0791dc3a0c7ddd7cf6d0b333ff2
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
 				078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */,
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,
