@@ -238,6 +238,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YQZ-Nh-2rh" firstAttribute="centerX" secondItem="sd9-77-upu" secondAttribute="centerX" id="5za-2D-neZ"/>
                             <constraint firstItem="6rn-V9-gxO" firstAttribute="top" secondItem="HqU-if-at0" secondAttribute="bottom" constant="8" id="FDU-SK-qDb"/>
@@ -252,6 +253,9 @@
                             <constraint firstItem="HqU-if-at0" firstAttribute="top" secondItem="YQZ-Nh-2rh" secondAttribute="bottom" constant="14" id="yK6-Du-OdO"/>
                             <constraint firstItem="YQZ-Nh-2rh" firstAttribute="top" secondItem="auA-ky-WDj" secondAttribute="bottom" constant="8" id="z8U-Sv-k7J"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="iap-Wx-uB7" appends="YES" id="GaK-Pi-DPb"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Tool" id="3Yh-yh-bI5">
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="uKD-Nm-e1U">
@@ -274,6 +278,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoE-lF-Jpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iap-Wx-uB7"/>
             </objects>
             <point key="canvasLocation" x="2434" y="-58"/>
         </scene>

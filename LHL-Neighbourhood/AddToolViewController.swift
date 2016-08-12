@@ -11,7 +11,7 @@ import Parse
 import IQKeyboardManagerSwift
 
 
-class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -22,7 +22,7 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var priceTextField: UITextField!
     
     
-    // For pickerViews
+    // List for pickerViews
     var catSecList = [
         ["Kitchen", "Outdoor", "Electronics", "Garden", "Miscellaneous"],
         ["Share", "Buy", "Sell"]
@@ -39,21 +39,63 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
 
+        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(AddToolViewController.imageViewTapped(_:)))
+        tapGesture.delegate = self
+        imageView.userInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGesture)
+
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        nameTextField.resignFirstResponder()
+        availabilityTextField.resignFirstResponder()
+        priceTextField.resignFirstResponder()
     }
 
+    // MARKS: Action - imageViewTapped -
+    func imageViewTapped(sender: UITapGestureRecognizer? = nil) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        if TARGET_OS_SIMULATOR == 1 {
+            
+            imagePickerController.sourceType = .PhotoLibrary
+            
+        } else {
+            
+            imagePickerController.sourceType = .Camera
+            imagePickerController.cameraDevice = .Rear
+            imagePickerController.cameraCaptureMode = .Photo
+        }
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
     
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imageView.image = selectedImage
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
         let tool = PFObject(className: "Tool")
         
         tool["name"] = nameTextField.text
-        //        tool["photo"] = " "
-        //        tool["postedBy"] = PFUser.currentUser()
+    //        tool["postedBy"] = PFUser.currentUser()
         tool["category"] = catSecList[0][categoryPickerView.selectedRowInComponent(0)]
         tool["sectionStr"] = catSecList[1][categoryPickerView.selectedRowInComponent(1)]
         tool["availability"] = availabilityTextField.text
         tool["price"] = priceTextField.text
+
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.9)
+        let imageFile = PFFile(data: imageData!)
+        tool["photo"] = imageFile
         
         tool.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
@@ -74,13 +116,6 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        nameTextField.resignFirstResponder()
-        availabilityTextField.resignFirstResponder()
-        priceTextField.resignFirstResponder()
-
-    }
     
     //MARK: - UIPickerView Delegates and data sources
     //MARK: Data Sources
