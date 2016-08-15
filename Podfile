@@ -7,7 +7,8 @@ use_frameworks!
 target 'LHL-Neighbourhood' do
 pod 'JSQMessagesViewController'
 pod 'IQKeyboardManagerSwift'
-
+pod 'Parse'
+pod 'ParseUI'
   # Pods for LHL-Neighbourhood
 
 end
