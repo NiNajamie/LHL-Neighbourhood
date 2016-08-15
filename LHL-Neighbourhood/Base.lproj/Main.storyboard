@@ -47,7 +47,7 @@
         <!--Community Board-->
         <scene sceneID="hd2-xh-brB">
             <objects>
-                <viewController id="e8Q-G9-ucg" customClass="BoardViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoardViewController" id="e8Q-G9-ucg" customClass="BoardViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DgG-v6-W2Y"/>
                         <viewControllerLayoutGuide type="bottom" id="gCh-lc-fIs"/>
@@ -762,7 +762,7 @@
         <!--Welcome-->
         <scene sceneID="Cka-ac-x6D">
             <objects>
-                <viewController id="81r-2y-MyL" customClass="SignInViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="81r-2y-MyL" customClass="SignInViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uMp-7Q-crL"/>
                         <viewControllerLayoutGuide type="bottom" id="a68-Hs-FeU"/>
@@ -894,7 +894,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9c5-cw-2Tk"/>
         <segue reference="8Gg-cv-cYD"/>
+        <segue reference="nP9-Pr-QSI"/>
     </inferredMetricsTieBreakers>
 </document>

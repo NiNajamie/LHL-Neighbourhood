@@ -12,8 +12,8 @@ import Parse
 class MainVC: UIPageViewController, UIPageViewControllerDataSource {
 
     var postArray = [ManagerPost]()
-   
-    
+private var pageViewController: UIPageViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFromParse { (success) in
@@ -22,13 +22,11 @@ class MainVC: UIPageViewController, UIPageViewControllerDataSource {
         
         self.dataSource = self
         self.setViewControllers([self.getViewControllerAtIndex(0)] as [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?
     {
         let pageContent: PostContentViewController = viewController as! PostContentViewController
-                
         if var index = pageContent.pageIndex {
             
             index += 1;
@@ -91,20 +89,15 @@ class MainVC: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
     
-    
-//    func fetchFromParse() {
-//        let query = ManagerPost.query()!
-//        query.findObjectsInBackgroundWithBlock { (posts, error) -> Void in
-//            if error == nil {
-//                if let posts = posts as? [ManagerPost]{
-//                    self.postArray = posts
-//                    self.setViewControllers([self.getViewControllerAtIndex(0)] as [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-//                }
-//                
-//            } else {
-//                print(error)
-//            }
-//        }
-//    }
 
+    // MARK: - Page Indicator
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+       return self.postArray.count
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+ 
 }

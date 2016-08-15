@@ -29,15 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Fabric
 //        Fabric.with([Digits.self])
         //
-        let pageController = UIPageControl.appearance()
-        pageController.pageIndicatorTintColor = UIColor.lightGrayColor()
-        
-        pageController.currentPageIndicatorTintColor=UIColor.blackColor()
-        pageController.backgroundColor = UIColor.whiteColor()
-        
-        
-        
-        
+
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
+        let currentUser = PFUser.currentUser()
+        print(currentUser)
+        if currentUser != nil {
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("BoardViewController");
+        }
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor.grayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
+        appearance.backgroundColor = UIColor.darkGrayColor()
+
         return true
     }
 
