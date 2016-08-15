@@ -27,7 +27,6 @@ class ListOfToolTableViewController: UITableViewController {
         
         // we have to specify which item we needed
         // includeKeys can fetch items (better finish before nextVC loaded)
-
         
         
         let toolQuery = Tool.query()
