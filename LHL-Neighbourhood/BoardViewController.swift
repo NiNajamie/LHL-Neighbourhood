@@ -15,15 +15,26 @@ class BoardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // We're gonna pass sectionKey to ListVC instead of query in this VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if let listVC = segue.destinationViewController as? ListOfToolTableViewController
+        {
+            switch segue.identifier ?? "" {
+            case "ShowShare":
+                listVC.sectionKey = "share"
+                listVC.title = "List of Share Items"
+            case "ShowBuy":
+                listVC.sectionKey = "buy"
+                listVC.title = "List of Buy Items"
+            case "ShowSell":
+                listVC.sectionKey = "sell"
+                listVC.title = "List of Sell Items"
+            default:
+                break
+            }
+        }
     }
-    */
-
 }

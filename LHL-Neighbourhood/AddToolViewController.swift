@@ -22,18 +22,48 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var priceTextField: UITextField!
     
     
-    // List for pickerViews
-    var catSecList = [
-        ["Kitchen", "Outdoor", "Electronics", "Garden", "Miscellaneous"],
-        ["Share", "Buy", "Sell"]
-    ]
-
+    var categories = [Category]() {
+        didSet {
+            // todo: reload pickers
+            self.categoryPickerView.reloadAllComponents()
+        }
+    }
+    
+    var sections = [Section]() {
+        didSet {
+            // todo: reload pickers
+            self.categoryPickerView.reloadAllComponents()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self
+        
+        let queryCat = PFQuery(className: "Category")
+        queryCat.whereKeyExists("displayName")
+        queryCat.findObjectsInBackgroundWithBlock { (objects, error) in
+            
+            if let error = error {
+                print(error)
+            } else if let categories = objects as? [Category] {
+                self.categories = categories
+            }
+        }
+        
+        let querySec = PFQuery(className: "Section")
+        querySec.whereKeyExists("displayName")
+        
+        querySec.findObjectsInBackgroundWithBlock { (objects, error) in
+            
+            if let error = error {
+                print(error)
+            } else if let sections = objects as? [Section] {
+                self.sections = sections
+            }
+        }
         
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
@@ -88,18 +118,18 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             print("User is nil")
         }
         
-        let tool = PFObject(className: "Tool")
+        let tool = Tool()
         
-        tool["name"] = nameTextField.text
-        tool["postedBy"] = PFUser.currentUser()
-        tool["category"] = catSecList[0][categoryPickerView.selectedRowInComponent(0)]
-        tool["sectionStr"] = catSecList[1][categoryPickerView.selectedRowInComponent(1)]
-        tool["availability"] = availabilityTextField.text
-        tool["price"] = priceTextField.text
-
+        tool.name = nameTextField.text ?? "unnamed tool"
+        tool.category = self.categories[categoryPickerView.selectedRowInComponent(0)]
+        tool.section = self.sections[categoryPickerView.selectedRowInComponent(1)]
+        tool.availability = availabilityTextField.text ?? ""
+        tool.price = priceTextField.text ?? "$0"
+        tool.postedBy = PFUser.currentUser()!
+        
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.9)
         let imageFile = PFFile(data: imageData!)
-        tool["photo"] = imageFile
+        tool.photo = imageFile!
         
         tool.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
@@ -113,6 +143,8 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
         self.navigationController!.popViewControllerAnimated(true)
+        
+        
     }
     
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
@@ -124,15 +156,21 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     //MARK: - UIPickerView Delegates and data sources
     //MARK: Data Sources
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return catSecList.count
+        return 2
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return catSecList[component].count
+        if component == 0 {
+            return self.categories.count
+        }
+        return self.sections.count
         
     }
     //MARK: Delegates
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return catSecList[component][row]
+        if component == 0 {
+            return self.categories[row].displayName
+        }
+        return self.sections[row].displayName
     }
     
     

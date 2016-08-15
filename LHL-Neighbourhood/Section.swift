@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import Parse
 
-
-
-struct Section {
-    let displayName: String
-    let key: String
+class Section: PFObject, PFSubclassing {
+    
+    @NSManaged var displayName: String
+    @NSManaged var key: String
+    
+    static func parseClassName() -> String {
+        return "Section"
+    }
+    
+    convenience init(displayName: String, key: String) {
+        self.init()
+        self.displayName = displayName
+        self.key = key
+    }
 }

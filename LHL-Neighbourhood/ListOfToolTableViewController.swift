@@ -7,26 +7,43 @@
 //
 
 import UIKit
+import Parse
 
 class ListOfToolTableViewController: UITableViewController {
 
-    var toolArray = ["Tools", "Kitchen", "Outdoor", "Electronics"]
+    var sectionKey: String!
     
-    
+    // when tools called, updated everytime
+    var tools = [Tool]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        let sectionQuery = Section.query()!.whereKey("key", equalTo: self.sectionKey)
+        
+        // we have to specify which item we needed
+        // includeKeys can fetch items (better finish before nextVC loaded)
+        
+        
+        let toolQuery = Tool.query()
+        toolQuery?.whereKey("section", matchesQuery: sectionQuery)
+        toolQuery?.includeKeys(["category", "section"])
+        toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
+            if let tools = tools as? [Tool] {
+                self.tools = tools
+            }
+        })
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
     // MARK: - Table view data source
@@ -38,18 +55,28 @@ class ListOfToolTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toolArray.count
+        return tools.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        _ = toolArray[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("ToolCell", forIndexPath: indexPath)
+        cell.textLabel?.text = tools[indexPath.row].name
         
         return cell
     }
-
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if let dvc = segue.destinationViewController as? DetailOfToolViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            
+            let tool = self.tools[indexPath.row]
+            dvc.tool = tool
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -82,15 +109,6 @@ class ListOfToolTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 }
