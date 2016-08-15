@@ -41,7 +41,7 @@ class ChatViewController: JSQMessagesViewController {
 extension ChatViewController {
     func addDemoMessages() {
         for i in 1...10 {
-            let sender = (i%2 == 0) ? "Server" : self.senderId
+            let sender = (i%2 == 0) ? "Another User" : self.senderId
             let messageContent = "Message \(i)"
             let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
             self.messages += [message]

@@ -23,9 +23,6 @@
 		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
 		9622E36D1D59436700CD1300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9622E36C1D59436700CD1300 /* Assets.xcassets */; };
 		9622E3701D59436700CD1300 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */; };
-		9622E37A1D59438000CD1300 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3771D59438000CD1300 /* ParseUI.framework */; };
-		9622E37B1D59438000CD1300 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3781D59438000CD1300 /* Bolts.framework */; };
-		9622E37C1D59438000CD1300 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3791D59438000CD1300 /* Parse.framework */; };
 		9622E37F1D59472000CD1300 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E37E1D59472000CD1300 /* libsqlite3.tbd */; };
 		9622E3811D59476600CD1300 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3801D59476600CD1300 /* libz.tbd */; };
 		9622E3831D59477B00CD1300 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3821D59477B00CD1300 /* SystemConfiguration.framework */; };
@@ -111,10 +108,7 @@
 				0790C7D11D596C790095AA0F /* DigitsKit.framework in Frameworks */,
 				9622E3811D59476600CD1300 /* libz.tbd in Frameworks */,
 				9622E37F1D59472000CD1300 /* libsqlite3.tbd in Frameworks */,
-				9622E37A1D59438000CD1300 /* ParseUI.framework in Frameworks */,
 				0790C7D31D596C790095AA0F /* TwitterCore.framework in Frameworks */,
-				9622E37C1D59438000CD1300 /* Parse.framework in Frameworks */,
-				9622E37B1D59438000CD1300 /* Bolts.framework in Frameworks */,
 				5328413C7BFFD558A952C3A2 /* Pods_LHL_Neighbourhood.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

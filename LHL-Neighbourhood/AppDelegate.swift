@@ -19,12 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Initialize Parse.
         User.registerSubclass()
         TextMessage.registerSubclass()
         ManagerPost.registerSubclass()
-
         Tool.registerSubclass()
+        Section.registerSubclass()
+        Category.registerSubclass()
+        
         Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
         //Fabric
 //        Fabric.with([Digits.self])

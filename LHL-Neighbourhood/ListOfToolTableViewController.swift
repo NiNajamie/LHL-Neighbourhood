@@ -31,8 +31,7 @@ class ListOfToolTableViewController: UITableViewController {
         
         let toolQuery = Tool.query()
         toolQuery?.whereKey("section", matchesQuery: sectionQuery)
-        toolQuery?.includeKey("category")
-        toolQuery?.includeKey("section")
+        toolQuery?.includeKeys(["category", "section"])
         toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
             if let tools = tools as? [Tool] {
                 self.tools = tools
@@ -71,12 +70,10 @@ class ListOfToolTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        if segue.identifier == "detail" {
+        if let dvc = segue.destinationViewController as? DetailOfToolViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
             
-            // pass self.sectionArray forward
-            let dvc = segue.destinationViewController as! DetailOfToolViewController
-            let indexPath = tableView.indexPathForSelectedRow
-            let tool = self.tools[(indexPath?.row)!]
+            let tool = self.tools[indexPath.row]
             dvc.tool = tool
         }
     }
