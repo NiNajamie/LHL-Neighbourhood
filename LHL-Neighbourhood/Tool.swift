@@ -15,8 +15,8 @@ class Tool: PFObject, PFSubclassing {
     @NSManaged var name: String
     @NSManaged var photo: PFFile
     @NSManaged var postedBy: PFUser
-    @NSManaged var category: String
-    @NSManaged var sectionStr: String
+    @NSManaged var category: Category
+    @NSManaged var section: Section
     @NSManaged var availability: String
     @NSManaged var price: String
     
@@ -25,13 +25,13 @@ class Tool: PFObject, PFSubclassing {
     }
     
     
-    convenience init(name: String, photo: PFFile, category: String, sectionStr: String, availability: String, price: String, postedBy: PFUser) {
+    convenience init(name: String, photo: PFFile, category: Category, section: Section, availability: String, price: String, postedBy: PFUser) {
         
         self.init()
         self.name = name
         self.photo = photo
         self.category = category
-        self.sectionStr = sectionStr
+        self.section = section
         self.availability = availability
         self.price = price
         self.postedBy = postedBy

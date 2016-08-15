@@ -37,6 +37,7 @@
 		9622E38F1D5947C000CD1300 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E38E1D5947C000CD1300 /* CFNetwork.framework */; };
 		9622E3911D5947CA00CD1300 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3901D5947CA00CD1300 /* AudioToolbox.framework */; };
 		9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3961D594B4B00CD1300 /* SignInViewController.swift */; };
+		967F3E671D612FAF0062B71A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F3E661D612FAF0062B71A /* Category.swift */; };
 		96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */; };
 		96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0BB11D5CFBE300732DF4 /* Tool.swift */; };
 		96CC91571D5A38ED002288FF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC91561D5A38ED002288FF /* Section.swift */; };
@@ -81,6 +82,7 @@
 		9622E38E1D5947C000CD1300 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9622E3901D5947CA00CD1300 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9622E3961D594B4B00CD1300 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		967F3E661D612FAF0062B71A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToolViewController.swift; sourceTree = "<group>"; };
 		96AA0BB11D5CFBE300732DF4 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		96CC91561D5A38ED002288FF /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				9622E3651D59436700CD1300 /* AppDelegate.swift */,
 				96CC91561D5A38ED002288FF /* Section.swift */,
+				967F3E661D612FAF0062B71A /* Category.swift */,
 				07A7EAA01D5DA1E500A1AE33 /* ManagerPost.swift */,
 				07FC125A1D5BD5CC00989AFB /* User.swift */,
 				96AA0BB11D5CFBE300732DF4 /* Tool.swift */,
@@ -393,6 +396,7 @@
 				07A7EAA11D5DA1E500A1AE33 /* ManagerPost.swift in Sources */,
 				96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */,
 				96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */,
+				967F3E671D612FAF0062B71A /* Category.swift in Sources */,
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
 				078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */,
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,

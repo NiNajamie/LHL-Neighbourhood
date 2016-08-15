@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIm-6O-Amt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIm-6O-Amt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wxh-sV-rAD" id="uvs-PJ-c71">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -42,7 +42,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki1-TV-Cmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="298"/>
+            <point key="canvasLocation" x="1715" y="148"/>
         </scene>
         <!--Community Board-->
         <scene sceneID="hd2-xh-brB">
@@ -63,12 +63,30 @@
                                 </constraints>
                                 <state key="normal" title="Share Tools"/>
                                 <connections>
-                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="shareTools" id="2fQ-hM-Hy2"/>
+                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowShare" id="2fQ-hM-Hy2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBl-zp-DSW">
-                                <rect key="frame" x="128" y="316" width="64" height="30"/>
-                                <state key="normal" title="Buy / Sell"/>
+                                <rect key="frame" x="145" y="269" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="8WK-zs-s6g"/>
+                                    <constraint firstAttribute="height" constant="30" id="cou-xT-79j"/>
+                                </constraints>
+                                <state key="normal" title="Buy"/>
+                                <connections>
+                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowBuy" id="zQH-cO-jnu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-UN-Gw1">
+                                <rect key="frame" x="145" y="316" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fAd-6q-m6d"/>
+                                    <constraint firstAttribute="width" constant="30" id="yKP-P4-RoT"/>
+                                </constraints>
+                                <state key="normal" title="Sell"/>
+                                <connections>
+                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowSell" id="mAa-wk-jje"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-qn-aH9">
                                 <rect key="frame" x="101" y="433" width="119" height="30"/>
@@ -80,11 +98,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GBl-zp-DSW" firstAttribute="top" secondItem="myu-08-8nh" secondAttribute="bottom" constant="77" id="3T1-IX-7Lw"/>
                             <constraint firstItem="GBl-zp-DSW" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="AO8-f9-CMW"/>
                             <constraint firstItem="myu-08-8nh" firstAttribute="top" secondItem="DgG-v6-W2Y" secondAttribute="bottom" constant="145" id="LNu-BI-IuH"/>
+                            <constraint firstItem="GaY-UN-Gw1" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="MII-3c-fYZ"/>
+                            <constraint firstItem="GBl-zp-DSW" firstAttribute="top" secondItem="myu-08-8nh" secondAttribute="bottom" constant="30" id="Ug2-nk-puK"/>
                             <constraint firstItem="s2g-qn-aH9" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="cma-Tj-7Y3"/>
-                            <constraint firstItem="s2g-qn-aH9" firstAttribute="top" secondItem="GBl-zp-DSW" secondAttribute="bottom" constant="87" id="pw2-Sz-N1l"/>
+                            <constraint firstItem="GaY-UN-Gw1" firstAttribute="top" secondItem="GBl-zp-DSW" secondAttribute="bottom" constant="17" id="ddi-38-IKy"/>
+                            <constraint firstItem="s2g-qn-aH9" firstAttribute="top" secondItem="GaY-UN-Gw1" secondAttribute="bottom" constant="87" id="fVr-BB-dWw"/>
                             <constraint firstItem="myu-08-8nh" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="yuA-kj-5Vj"/>
                         </constraints>
                     </view>
@@ -157,7 +177,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xjl-SK-OfY" id="5s3-p8-ve0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZK-IF-9du">
@@ -410,7 +430,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoE-lF-Jpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="iap-Wx-uB7"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="-58"/>
+            <point key="canvasLocation" x="2318" y="-168"/>
         </scene>
         <!--Detail of Tool-->
         <scene sceneID="rgF-11-Prm">
@@ -469,10 +489,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail of Tool" id="cLH-4F-X6u"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="rme-LS-xzd" id="EMe-1u-b4c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00u-3H-ivB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="570"/>
+            <point key="canvasLocation" x="2318" y="438"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="ZF5-5i-Fmy">
@@ -491,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKH-vf-d9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="570"/>
+            <point key="canvasLocation" x="2713" y="438"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="Cka-ac-x6D">
@@ -610,6 +633,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="zQH-cO-jnu"/>
         <segue reference="9c5-cw-2Tk"/>
     </inferredMetricsTieBreakers>
 </document>
