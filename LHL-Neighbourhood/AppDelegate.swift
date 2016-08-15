@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         User.registerSubclass()
         TextMessage.registerSubclass()
         ManagerPost.registerSubclass()
+        VacantRoom.registerSubclass()
         Tool.registerSubclass()
         Section.registerSubclass()
         Category.registerSubclass()

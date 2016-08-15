@@ -7,93 +7,152 @@
 //
 
 import UIKit
+import Parse
+
+class EmergencyPostDisplayVC: UIViewController, UIPageViewControllerDataSource{
+    
+    // MARK: - Variables
+    var pageViewController: UIPageViewController?
+    
+    // Initialize it right away here
+  //  var postArra = [ManagerPost]()
+    
+    var postArray = [ManagerPost]()
+
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        fetchFromParse({
+//            postArray in
+            self.postArray = [ManagerPost]()
+
+//        })
+        fetchFromParse()
+        createPageViewController()
+        setupPageControl()
+    }
+    
+    func createPageViewController() {
+        
+        let pageController = self.storyboard!.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
+        pageController.dataSource = self
+        
+        if postArray.count > 0 {
+            let firstController = getItemController(0)!
+            let startingViewControllers = [firstController]
+            pageController.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        }
+        
+        pageViewController = pageController
+        addChildViewController(pageViewController!)
+        self.view.addSubview(pageViewController!.view)
+        pageViewController!.didMoveToParentViewController(self)
+    }
+    
+    private func setupPageControl() {
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor.grayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
+        appearance.backgroundColor = UIColor.darkGrayColor()
+    }
+    
+    // MARK: - UIPageViewControllerDataSource
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        
+        guard let itemController = viewController as? PostContentViewController else { return nil }
+        
+        if itemController.itemIndex > 0 {
+            return getItemController(itemController.itemIndex-1)
+        }
+        
+        return nil
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        guard let itemController = viewController as? PostContentViewController else { return nil }
+        
+        if itemController.itemIndex+1 < postArray.count {
+            return getItemController(itemController.itemIndex+1)
+        }
+        
+        return nil
+    }
+    
+    private func getItemController(itemIndex: Int) -> PostContentViewController? {
+        
+        if itemIndex < postArray.count {
+            let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("PageContent") as! PostContentViewController
+            let aPost = postArray[itemIndex]
+//            pageItemController.itemIndex = itemIndex
+//            pageItemController.postTitle = aPost.title
+//            pageItemController.postedBy = aPost.managerName
+//            pageItemController.postDate = aPost.eventDate.description
+//            pageItemController.postDescription = aPost.description
+            
+            return pageItemController
+        }
+        
+        return nil
+    }
+    
+    // MARK: - Page Indicator
+    
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        
+        return postArray.count
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+    // MARK: - Additions
+    
+    func currentControllerIndex() -> Int {
+        
+        let pageItemController = self.currentController()
+        
+        if let controller = pageItemController as? PostContentViewController {
+            return controller.itemIndex
+        }
+        
+        return -1
+    }
+    
+    func currentController() -> UIViewController? {
+        
+        if self.pageViewController?.viewControllers?.count > 0 {
+            return self.pageViewController?.viewControllers![0]
+        }
+        
+        return nil
+    }
+    
+ func fetchFromParse() {
+        let query = PFQuery(className:"ManagerPost")
+        query.findObjectsInBackgroundWithBlock { (posts, error) -> Void in
+            if error == nil {
+         
+                for post in posts! {
+                    self.postArray.append(post as! ManagerPost)
+                }
+                self.pageViewController?.loadView()
+            
+//                dispatch_async(dispatch_get_main_queue()) {
+//                completion(postArray: self.postArray)
+////                    self.pageViewController?.reloadInputViews()
 //
-//class EmergencyPostDisplayVC: UIViewController, UIPageViewControllerDataSource{
-//    
-//    // MARK: - Variables
-////    private var pageViewController: UIPageViewController?
-//
-//    var pageViewController:UIPageViewController!
-//    var pageTitles:NSArray!
-//    var pageDetails:NSArray!
-//    var pages
-//    
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        self.pageTitles = NSArray(objects: "Explore", "Don't Explore")
-//        self.pageDetails = NSArray(objects: "Wow it isn't set to nil now", "Wanna see this Page")
-//        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
-//        
-//        self.pageViewController.dataSource = self
-//        let startVC = self.viewControllerAtIndex(0) as EmergencyContentViewController
-//        
-//      //array holding our first VC
-//        let viewControllers = NSArray(objects: startVC)
-//        self.pageViewController.setViewControllers(viewControllers as? [UIViewController], direction: .Forward, animated: true, completion: nil)
-//        
-//        
-//        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.height-60)
-//        self.addChildViewController(self.pageViewController)
-//        self.view.addSubview(self.pageViewController.view)
-//        self.pageViewController.didMoveToParentViewController(self)
-//    }
-//
-//    @IBAction func AddEmergencyPostButtonPressed(sender: AnyObject) {
-//        
-//    }
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//    func viewControllerAtIndex(index: Int) -> EmergencyContentViewController
-//    {
-//        if ((self.pageTitles.count == 0) || (index >= self.pageTitles.count)) {
-//         return EmergencyContentViewController()
-//        }
-//        
-//        let vc: UIPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! EmergencyContentViewController
-//        vc.titleText = self.pageTitles[index]as! String
-//        vc.pageIndex = index
-//        return vc
-//    }
-//    
-//    
-//    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-//        let vc = viewController as! EmergencyContentViewController
-//        var index = vc.pageIndex as Int
-//        if (index == 0 || index == NSNotFound)
-//        {
-//            
-//            return nil
-//        }
-//        
-//        index -= 1
-//        
-//        return self.viewControllerAtIndex(index)
-//        }
-//
-//    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-//        let vc = viewController as! EmergencyContentViewController
-//        var index = vc.pageIndex as Int
-//        if (index == NSNotFound) {
-//            return nil
-//        }
-//        index += 1
-//        if (index == self.pageTitles.count) {
-//           
-//        }
-//        return self.viewControllerAtIndex(index)
-//    }
-//    
-//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        return self.pageTitles.count
-//    }
-//    
-//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        return 0
-//    }
-//
-//}
+//                }
+
+            } else {
+                print(error)
+            }
+        }
+        print("Last \(self.postArray.count)")
+
+    }
+
+
+}

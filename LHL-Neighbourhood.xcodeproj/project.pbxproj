@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071AD47D1D605AD4005A91E1 /* VacancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AD47C1D605AD4005A91E1 /* VacancyCell.swift */; };
+		071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AD47E1D6064BA005A91E1 /* MainVC.swift */; };
 		078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */; };
 		078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */; };
 		078F59C41D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59C31D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift */; };
@@ -18,6 +20,11 @@
 		07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */; };
 		07A7EA9F1D5D8DB300A1AE33 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */; };
 		07A7EAA11D5DA1E500A1AE33 /* ManagerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA01D5DA1E500A1AE33 /* ManagerPost.swift */; };
+		07A7EAA31D5E565200A1AE33 /* EmergencyPostPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */; };
+		07A7EAA51D5E65EC00A1AE33 /* PostContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */; };
+		07A7EAA91D60430200A1AE33 /* AddRoomVacancyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */; };
+		07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */; };
+		07A7EAAF1D604C7100A1AE33 /* VacantRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */; };
 		07FC125B1D5BD5CC00989AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC125A1D5BD5CC00989AFB /* User.swift */; };
 		5328413C7BFFD558A952C3A2 /* Pods_LHL_Neighbourhood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */; };
 		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
@@ -46,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071AD47C1D605AD4005A91E1 /* VacancyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacancyCell.swift; sourceTree = "<group>"; };
+		071AD47E1D6064BA005A91E1 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentViewController.swift; sourceTree = "<group>"; };
 		078F59C31D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyPostDisplayVC.swift; sourceTree = "<group>"; };
@@ -57,6 +66,11 @@
 		07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		07A7EAA01D5DA1E500A1AE33 /* ManagerPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPost.swift; sourceTree = "<group>"; };
+		07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyPostPagesVC.swift; sourceTree = "<group>"; };
+		07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostContentViewController.swift; sourceTree = "<group>"; };
+		07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRoomVacancyVC.swift; sourceTree = "<group>"; };
+		07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VancancyListVC.swift; sourceTree = "<group>"; };
+		07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacantRoom.swift; sourceTree = "<group>"; };
 		07FC125A1D5BD5CC00989AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHL_Neighbourhood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5813EFB7EB3CE609600BCECE /* Pods-LHL-Neighbourhood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHL-Neighbourhood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHL-Neighbourhood/Pods-LHL-Neighbourhood.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,8 +210,11 @@
 				96CC91561D5A38ED002288FF /* Section.swift */,
 				967F3E661D612FAF0062B71A /* Category.swift */,
 				07A7EAA01D5DA1E500A1AE33 /* ManagerPost.swift */,
+				07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */,
 				07FC125A1D5BD5CC00989AFB /* User.swift */,
 				96AA0BB11D5CFBE300732DF4 /* Tool.swift */,
+				07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */,
+				071AD47C1D605AD4005A91E1 /* VacancyCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -207,6 +224,7 @@
 			children = (
 				9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */,
 				07A7EA9A1D5D5EA400A1AE33 /* Main.storyboard */,
+				07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -214,14 +232,17 @@
 		9622E3941D59499D00CD1300 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */,
 				078F59C31D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift */,
+				078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */,
 				9622E3961D594B4B00CD1300 /* SignInViewController.swift */,
 				96CC91781D5ACDB9002288FF /* BoardViewController.swift */,
 				07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */,
-				07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */,
+				07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */,
+				07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */,
 				078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */,
 				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
+				071AD47E1D6064BA005A91E1 /* MainVC.swift */,
+				07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */,
 				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
 				96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */,
 			);
@@ -386,23 +407,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CC917D1D5ACE6C002288FF /* DetailOfToolViewController.swift in Sources */,
+				07A7EAA51D5E65EC00A1AE33 /* PostContentViewController.swift in Sources */,
 				96CC91571D5A38ED002288FF /* Section.swift in Sources */,
 				07A7EAA11D5DA1E500A1AE33 /* ManagerPost.swift in Sources */,
 				96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */,
 				96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */,
 				967F3E671D612FAF0062B71A /* Category.swift in Sources */,
+				071AD47D1D605AD4005A91E1 /* VacancyCell.swift in Sources */,
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
 				078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */,
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,
 				07FC125B1D5BD5CC00989AFB /* User.swift in Sources */,
+				071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */,
+				07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */,
 				078F59C41D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift in Sources */,
+				07A7EAA91D60430200A1AE33 /* AddRoomVacancyVC.swift in Sources */,
 				07A7EA9F1D5D8DB300A1AE33 /* Cell.swift in Sources */,
 				96CC91771D5AC29B002288FF /* ChatViewController.swift in Sources */,
+				07A7EAAF1D604C7100A1AE33 /* VacantRoom.swift in Sources */,
 				9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */,
 				078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */,
 				96CC91791D5ACDB9002288FF /* BoardViewController.swift in Sources */,
+				07A7EAA31D5E565200A1AE33 /* EmergencyPostPagesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
