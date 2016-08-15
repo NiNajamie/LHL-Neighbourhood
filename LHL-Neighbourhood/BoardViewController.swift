@@ -20,20 +20,24 @@ class BoardViewController: UIViewController {
     // We're gonna pass sectionKey to ListVC instead of query in this VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let listVC = segue.destinationViewController as! ListOfToolTableViewController
-        
-        switch segue.identifier ?? "" {
-        case "ShowShare":
-            listVC.sectionKey = "share"
-            listVC.title = "List of Share Items"
-        case "ShowBuy":
-            listVC.sectionKey = "buy"
-            listVC.title = "List of Buy Items"
-        case "ShowSell":
-            listVC.sectionKey = "sell"
-            listVC.title = "List of Sell Items"
-        default:
-            break
-        }
+        if let listVC = segue.destinationViewController as? ListOfToolTableViewController {
+            
+            switch segue.identifier ?? "" {
+            case "ShowShare":
+                listVC.sectionKey = "share"
+                listVC.title = "List of Share Items"
+            case "ShowBuy":
+                listVC.sectionKey = "buy"
+                listVC.title = "List of Buy Items"
+            case "ShowSell":
+                listVC.sectionKey = "sell"
+                listVC.title = "List of Sell Items"
+            default:
+                break
+            }
+            
+        }// else if let emergVC = segue.destinationViewController as? EmergencyContentViewController {
+            
+        //}
     }
 }
