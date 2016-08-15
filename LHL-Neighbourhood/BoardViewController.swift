@@ -1,10 +1,4 @@
-//
-//  BoardViewController.swift
-//  LHL-Neighbourhood
-//
-//  Created by Asuka Nakagawa on 2016-08-09.
-//  Copyright © 2016 Asuka Nakagawa. All rights reserved.
-//
+
 
 import UIKit
 

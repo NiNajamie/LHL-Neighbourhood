@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         User.registerSubclass()
         TextMessage.registerSubclass()
         ManagerPost.registerSubclass()
-
+        VacantRoom.registerSubclass()
         Tool.registerSubclass()
         Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
         //Fabric
@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         pageController.currentPageIndicatorTintColor=UIColor.blackColor()
         pageController.backgroundColor = UIColor.whiteColor()
+        
+        
+        
+        
         return true
     }
 

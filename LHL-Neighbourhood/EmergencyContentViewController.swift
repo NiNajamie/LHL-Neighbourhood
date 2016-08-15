@@ -32,11 +32,11 @@ class EmergencyContentViewController: UIViewController {
 
     @IBAction func savePostButtonPressed(sender: UIButton) {
       
-        var post = PFObject(className:"ManagerPost")
-        post["title"] = self.postTitle.text
-        post["description"] = self.postDescription.text
-        post["managerName"] = self.postedByManager.text
-        post["eventDate"] = self.postDateAndTime.date
+        let post = ManagerPost()
+        post.title = self.postTitle.text ?? ""
+        post.postDescription = self.postDescription.text  ?? ""
+        post.managerName = self.postedByManager.text ?? ""
+        post.eventDate = self.postDateAndTime.date
         
         post.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
@@ -78,6 +78,9 @@ class EmergencyContentViewController: UIViewController {
         })
 
     }
+    
+    @IBOutlet weak var postButtonPressed: UIButton!
+    
 //    func datePickerChanged(datePicker:UIDatePicker) {
 //        var dateFormatter = NSDateFormatter()
 //        
