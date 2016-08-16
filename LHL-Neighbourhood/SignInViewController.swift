@@ -46,9 +46,7 @@ class SignInViewController: UIViewController {
             self.showAlertOnError("Error", message: "Fields can not be empty!!!")
         }
             //Fileds not empty
-            
         else{
-
             if(self.userTypeSegmentControl.selectedSegmentIndex == 0){
                 
                 self.apartmentAlreadyExist {
@@ -62,33 +60,18 @@ class SignInViewController: UIViewController {
                 }
             }
             
-            if(self.userTypeSegmentControl.selectedSegmentIndex == 1){
-                
-                self.apartmentAlreadyExist {
-                    (apartment) -> () in
-    
-                    if apartment == nil {
-                        // create an apartment, then save user
-                        self.saveUser(nil,isManager: true)
+            if (self.userTypeSegmentControl.selectedSegmentIndex == 1){
+                self.apartmentAlreadyExist { apartment in
+                    if let apartment = apartment {
+                        self.showAlertOnError("Error", message: "Apartment Name '\(apartment.name)' Unavailable")
                     } else {
-                        self.showAlertOnError("Error", message: "Apartment Name Unavailable")
+                        // create an apartment, then save user
+                        self.saveUser(nil, isManager: true)
                     }
                 }
             }
-            
-            //            else{
-            //                if(self.apartmentAlreadyExist({(apartment) -> () in
-            //
-            //
-            //
-            
-            //}))
+
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func segmentPressed(sender: UISegmentedControl) {
@@ -171,74 +154,67 @@ class SignInViewController: UIViewController {
     //
     //}
     
-    func saveUser(apartment: Apartment?,isManager:Bool){
-        var userIsTaken:Bool = false
-        
-        self.usernameIsTaken({(isTaken) -> () in
-            userIsTaken = isTaken
-            if(userIsTaken){
+    func saveUser(apartment: Apartment?, isManager:Bool) {
+        self.usernameIsTaken { isTaken in
+            if (isTaken) {
                 //alert
                 self.showAlertOnError("Invalid Username", message: "User Name is taken")
                 self.clearTextfields()
-            }
-            else{
+            } else {
                 let user = User()
                 user.username = self.userNameTextfield.text!
                 user.password = self.passwordTextfield.text!
                 user["residentName"] = self.fullnameTextfield.text!
                 user["manager"] = isManager
                 
-                let message: String
-                
-                if let apartment = apartment { // user is not a manager, apartment exists
-                    user.apartment = apartment
-                    message = "Successful signup!"
-                } else {
-                    
-                    user.apartment = self.createApartment()
-                    message = "Successful SignUp - Apartment created :)"
-                }
-
-                user.signUpInBackgroundWithBlock {
-                    (result, error) -> Void in
+                user.signUpInBackgroundWithBlock { result, error in
                     if error == nil && result == true {
-                        print("SAVED OBJECT")
-                        //GO TO HOMEPAGE perform segue to Login
-                        self.performSegueToHomepage()
-                        self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
+                        print("user signup SAVED OBJECT")
+                        
+                        
+                        if let apartment = apartment { // user is not a manager, apartment exists
+                            user.apartment = apartment
+                            let message = "Successful signup!"
+                            
+                            user.saveInBackgroundWithBlock { result, error in
+                                //GO TO HOMEPAGE perform segue to Login
+                                self.performSegueToHomepage()
+                                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
+                            }
+                        } else {
+                            //if apartment doesn't exist create
+                            self.createApartmentForManager(user) { ap in
+                                user.apartment = ap
+                                let message = "Successful SignUp - Apartment created :)"
+                                user.saveInBackgroundWithBlock { result, error in
+                                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
+                                }
+                            }
+                            self.performSegueToHomepage()
+                        }
                     }
                 }
-                
-                //resident save
-
             }
-            
-        })
+        }
         
+       
     }
     
-    func createApartment() -> Apartment {
-//        let userManager = PFUser()
-//        userManager.username = userNameTextfield.text!
-//        userManager.password = passwordTextfield.text!
-//        userManager["residentName"] = fullnameTextfield.text!
-//        userManager["manager"] = false
-//        userManager["apartment"] = apartmentTextfield.text!
-//        userManager.signUpInBackgroundWithBlock{
-//            (result, error) -> Void in
-//            if error == nil && result == true {
-//                print("SAVED OBJECT")
-//                //GO TO HOMEPAGE perform segue to Login
-//                self.performSegueToHomepage()
-//                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: "Successful Login :)")
-//            }
-//        }
-        
+    func createApartmentForManager(user:User, completion:(Apartment)->()) {
         let apartment = Apartment()
         apartment.name = self.apartmentTextfield.text!
-        
-        return apartment
-        
+        apartment.saveInBackgroundWithBlock { success, error in
+            if (success) {
+                apartment.user = user
+                apartment.saveInBackgroundWithBlock { success, error in
+                    completion(apartment)
+                    self.showAlertOnSuccessThenDisappear("Success", message: "Manager Sign-Up successful")
+                }
+            } else {
+                // There was a problem, check error.description
+                self.showAlertOnError("Error", message: "Account could not be created")
+            }
+        }
     }
     
     func userIsManagerQuery(username:String, isManager:Bool)
@@ -264,12 +240,13 @@ class SignInViewController: UIViewController {
        
         let username = userNameTextfield.text!
         //access PFUsers
-        var query : PFQuery = PFUser.query()!
+        let query : PFQuery = PFUser.query()!
         query.whereKey("username",  equalTo: username)
         
-        query.findObjectsInBackgroundWithBlock {
-            (objects, error) in
-            if error == nil {
+        query.findObjectsInBackgroundWithBlock { objects, error in
+            if let error = error {
+                print(error)
+            } else {
                 if (objects!.count > 0){
                     completion(userNameTaken: true)
                     print("***username is taken")
@@ -277,8 +254,6 @@ class SignInViewController: UIViewController {
                     completion(userNameTaken: false)
                     print("****Username is available. ")
                 }
-            } else {
-                print("error")
             }
         }
         

@@ -12,13 +12,14 @@ import Parse
 class Apartment: PFObject, PFSubclassing {
     // Custom properties
     @NSManaged var name: String
-  
+    @NSManaged var user: User
    
     //@NSManaged var managerName: String
     
-    convenience init(name:String) {
+    convenience init(name:String, user:User) {
         self.init()
         self.name = name
+        self.user = user
 //        self.managerName = managerName
     }
     
