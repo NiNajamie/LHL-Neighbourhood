@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Initialize Parse.
+        Apartment.registerSubclass()
         User.registerSubclass()
         TextMessage.registerSubclass()
         ManagerPost.registerSubclass()
@@ -33,12 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Fabric
 //        Fabric.with([Digits.self])
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
-        let currentUser = PFUser.currentUser()
-        print(currentUser)
-        if currentUser != nil {
-            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("BoardViewController");
-        }
+//        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
+//        let currentUser = PFUser.currentUser()
+//        print(currentUser)
+//        if currentUser != nil {
+//            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("BoardViewController");
+//        }
 
         return true
     }

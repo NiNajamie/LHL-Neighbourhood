@@ -22,9 +22,10 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var userTypeSegmentControl: UISegmentedControl!
     
+    @IBOutlet weak var apartmentTextfield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
         self.userTypeSegmentControl.selectedSegmentIndex  = 0
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
@@ -41,37 +42,47 @@ class SignInViewController: UIViewController {
         
         //CHECK IF FIELDS ARE EMPTY
         
-        if (passwordTextfield.text?.characters.count == 0 || userNameTextfield.text?.characters.count == 0 || fullnameTextfield.text?.characters.count == 0){
-            
+        if (passwordTextfield.text?.characters.count == 0 || userNameTextfield.text?.characters.count == 0 || fullnameTextfield.text?.characters.count == 0 || apartmentTextfield.text?.characters.count == 0 ){
             self.showAlertOnError("Error", message: "Fields can not be empty!!!")
         }
-        
-        let user = PFUser()
-        user.username = userNameTextfield.text!
-        user.password = passwordTextfield.text!
-        user["residentName"] = fullnameTextfield.text!
-        
-        if  self.userTypeSegmentControl.selectedSegmentIndex == 0
-        {
-            user["manager"] = false
-        }
-        else
-        {
-            user["manager"] = true
-        }
-        
-        user.signUpInBackgroundWithBlock{
-            (result, error) -> Void in
-            if error == nil && result == true {
-                print("SAVED OBJECT")
-                //GO TO HOMEPAGE perform segue to Login
-                self.performSegueToHomepage()
-                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: "Successful Login :)")
+            //Fileds not empty
+            
+        else{
+
+            if(self.userTypeSegmentControl.selectedSegmentIndex == 0){
+                
+                self.apartmentAlreadyExist {
+                    (apartment) -> () in
+                    
+                    if let apartment = apartment{
+                        self.saveUser(apartment, isManager: false)
+                    } else {
+                        self.showAlertOnError("Error", message: "Apartment does not exist")
+                    }
+                }
             }
-            else
-            {
-                print(error)
+            
+            if(self.userTypeSegmentControl.selectedSegmentIndex == 1){
+                
+                self.apartmentAlreadyExist {
+                    (apartment) -> () in
+    
+                    if apartment == nil {
+                        // create an apartment, then save user
+                        self.saveUser(nil,isManager: true)
+                    } else {
+                        self.showAlertOnError("Error", message: "Apartment Name Unavailable")
+                    }
+                }
             }
+            
+            //            else{
+            //                if(self.apartmentAlreadyExist({(apartment) -> () in
+            //
+            //
+            //
+            
+            //}))
         }
     }
     
@@ -84,9 +95,16 @@ class SignInViewController: UIViewController {
         if sender.selectedSegmentIndex == 1
         {
             self.view.backgroundColor = UIColor.lightGrayColor()
+            apartmentTextfield.placeholder = "Create Apartment"
+            clearTextfields()
+            
         }
         if sender.selectedSegmentIndex == 0 {
-            self.view.backgroundColor = UIColor.yellowColor()
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
+            apartmentTextfield.placeholder = "Join Apartment"
+            clearTextfields()
+            //self.view.backgroundColor = UIColor.yellowColor()
+            
         }
     }
     
@@ -125,5 +143,155 @@ class SignInViewController: UIViewController {
         return "Welcome, \(personName)"
     }
     
+    func apartmentAlreadyExist(completion:(apt:Apartment?)-> ()) {
+        let enteredApt = apartmentTextfield.text
+        let apartmentExistQuery = Apartment.query()
+        apartmentExistQuery!.whereKey("name",  equalTo: enteredApt!)
+        apartmentExistQuery?.findObjectsInBackgroundWithBlock {(apartments, error) in
+            
+            if let apartment = apartments?.first as? Apartment {
+                completion(apt: apartment)
+            }else{
+                completion(apt: nil)
+            }
+        }
+        
+    }
+    
+    
+    
+    //
+    //    { (apartments, error) -> Bool in
+    //    if (apartments!.count > 0) {
+    //    return true
+    //    }
+    //    } else {
+    //    return false
+    //    }
+    //
+    //}
+    
+    func saveUser(apartment: Apartment?,isManager:Bool){
+        var userIsTaken:Bool = false
+        
+        self.usernameIsTaken({(isTaken) -> () in
+            userIsTaken = isTaken
+            if(userIsTaken){
+                //alert
+                self.showAlertOnError("Invalid Username", message: "User Name is taken")
+                self.clearTextfields()
+            }
+            else{
+                let user = User()
+                user.username = self.userNameTextfield.text!
+                user.password = self.passwordTextfield.text!
+                user["residentName"] = self.fullnameTextfield.text!
+                user["manager"] = isManager
+                
+                let message: String
+                
+                if let apartment = apartment { // user is not a manager, apartment exists
+                    user.apartment = apartment
+                    message = "Successful signup!"
+                } else {
+                    
+                    user.apartment = self.createApartment()
+                    message = "Successful SignUp - Apartment created :)"
+                }
 
+                user.signUpInBackgroundWithBlock {
+                    (result, error) -> Void in
+                    if error == nil && result == true {
+                        print("SAVED OBJECT")
+                        //GO TO HOMEPAGE perform segue to Login
+                        self.performSegueToHomepage()
+                        self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
+                    }
+                }
+                
+                //resident save
+
+            }
+            
+        })
+        
+    }
+    
+    func createApartment() -> Apartment {
+//        let userManager = PFUser()
+//        userManager.username = userNameTextfield.text!
+//        userManager.password = passwordTextfield.text!
+//        userManager["residentName"] = fullnameTextfield.text!
+//        userManager["manager"] = false
+//        userManager["apartment"] = apartmentTextfield.text!
+//        userManager.signUpInBackgroundWithBlock{
+//            (result, error) -> Void in
+//            if error == nil && result == true {
+//                print("SAVED OBJECT")
+//                //GO TO HOMEPAGE perform segue to Login
+//                self.performSegueToHomepage()
+//                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: "Successful Login :)")
+//            }
+//        }
+        
+        let apartment = Apartment()
+        apartment.name = self.apartmentTextfield.text!
+        
+        return apartment
+        
+    }
+    
+    func userIsManagerQuery(username:String, isManager:Bool)
+    {
+//        let user = PFUser()
+//        let ifUserIsManager = user.query()
+//        let enteredUsername = userNameTextfield.text
+//      //  let isManager =
+//        apartmentExistQuery!.whereKey("name",  equalTo: enteredApt!)
+//        apartmentExistQuery?.findObjectsInBackgroundWithBlock {(apartments, error) in
+//            
+//            if let apartment = apartments?.first as? Apartment {
+//                completion(apt: apartment)
+//            }else{
+//                completion(apt: nil)
+//            }
+//        }
+    }
+    
+    func usernameIsTaken(completion:(userNameTaken:Bool)-> ()){
+        
+        //bool to see if username is taken
+       
+        let username = userNameTextfield.text!
+        //access PFUsers
+        var query : PFQuery = PFUser.query()!
+        query.whereKey("username",  equalTo: username)
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects, error) in
+            if error == nil {
+                if (objects!.count > 0){
+                    completion(userNameTaken: true)
+                    print("***username is taken")
+                } else {
+                    completion(userNameTaken: false)
+                    print("****Username is available. ")
+                }
+            } else {
+                print("error")
+            }
+        }
+        
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        clearTextfields()
+    }
+    
+    func clearTextfields(){
+        fullnameTextfield.text = ""
+        apartmentTextfield.text = ""
+        userNameTextfield.text = ""
+        passwordTextfield.text = ""
+    }
 }
