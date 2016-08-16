@@ -42,7 +42,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki1-TV-Cmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008" y="181"/>
+            <point key="canvasLocation" x="2004" y="171"/>
         </scene>
         <!--Community Board-->
         <scene sceneID="hd2-xh-brB">
@@ -692,7 +692,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoE-lF-Jpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="iap-Wx-uB7"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="-58"/>
+            <point key="canvasLocation" x="2434" y="-128"/>
         </scene>
         <!--Detail of Tool-->
         <scene sceneID="rgF-11-Prm">
@@ -876,7 +876,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00u-3H-ivB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="570"/>
+            <point key="canvasLocation" x="2434" y="488"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="ZF5-5i-Fmy">
@@ -895,7 +895,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKH-vf-d9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="570"/>
+            <point key="canvasLocation" x="2839" y="488"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="Cka-ac-x6D">

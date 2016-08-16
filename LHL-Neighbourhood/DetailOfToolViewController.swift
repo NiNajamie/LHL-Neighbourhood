@@ -30,12 +30,13 @@ class DetailOfToolViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let imagePFFile = tool.photo as? PFFile! {
+        if let imagePFFile = tool.photo {
             imagePFFile.getDataInBackgroundWithBlock({
                 (imageData, error) -> Void in
-                if (error == nil) {
-                    let image = UIImage(data: imageData!)
-                    self.photoImageView.image = image
+                if let imageData = imageData {
+                    self.photoImageView.image = UIImage(data: imageData)
+                } else {
+                    print("error \(error)")
                 }
             })
         }
