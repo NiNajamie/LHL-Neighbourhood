@@ -13,23 +13,52 @@ import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
+    // Poster's comment
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
+    
+    // Applicant's comment
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
     
     //  To store messages sent and received in Parse
     var messages = [JSQMessage]()
     
+    var tool: Tool!
+    
+    var conversation = Conversation()
+    
+    // currentUser == applicant
+    var applicant = User.currentUser()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // chat with Poster
+        title = "Chat with \(tool.postedBy!.username!)"
         
         self.setup()
         self.addDemoMessages()
         
+        conversation.messageArray = NSMutableArray()
+        
+        
+//        let postedByQuery = Tool.query()!.whereKey("postedBy", equalTo: self.tool)
+//        
+//        let toolQuery = Tool.query()
+////        toolQuery?.whereKey("postedBy", matchesQuery: postedByQuery)
+//        toolQuery?.includeKeys(["category", "section", "postedBy"])
+//        toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
+//            if let tools = tools as? [Tool] {
+//                self.tools = tools
+//            }
+//        })
+//
+//        tool.postedBy
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func reloadMessagesView() {
@@ -40,8 +69,10 @@ class ChatViewController: JSQMessagesViewController {
 //MARK - Setup
 extension ChatViewController {
     func addDemoMessages() {
-        for i in 1...10 {
-            let sender = (i%2 == 0) ? "Another User" : self.senderId
+        
+        for i in 1...5 {
+
+            let sender = (i%2 == 0) ? tool.postedBy!.username! : self.senderId
             let messageContent = "Message \(i)"
             let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
             self.messages += [message]
@@ -132,8 +163,7 @@ extension ChatViewController {
     func sendMessageToParse(message: JSQMessage) {
         let messageToSend = TextMessage()
         messageToSend.text = message.text
-        messageToSend.senderID = self.senderId
-        
+        messageToSend.senderStr = self.senderId
         
         messageToSend.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

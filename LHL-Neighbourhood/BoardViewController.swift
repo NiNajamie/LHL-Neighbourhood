@@ -19,9 +19,8 @@ class BoardViewController: UIViewController {
     // MARK: - Navigation
     // We're gonna pass sectionKey to ListVC instead of query in this VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let listVC = segue.destinationViewController as? ListOfToolTableViewController
-        {
+
+        if let listVC = segue.destinationViewController as? ListOfToolTableViewController {
             switch segue.identifier ?? "" {
             case "ShowShare":
                 listVC.sectionKey = "share"
@@ -36,5 +35,6 @@ class BoardViewController: UIViewController {
                 break
             }
         }
+
     }
 }

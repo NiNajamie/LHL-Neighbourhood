@@ -21,32 +21,47 @@ class DetailOfToolViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
     
+    @IBOutlet weak var postedByLabel: UILabel!
     
-    // I have responsibility for there is a tool Object, force it
+
     var tool: Tool!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    if let imagePFFile = tool.photo as? PFFile {
+
+        if let imagePFFile = tool.photo {
             imagePFFile.getDataInBackgroundWithBlock({
                 (imageData, error) -> Void in
-                if (error == nil) {
-                    let image = UIImage(data: imageData!)
-                    self.photoImageView.image = image
+                if let imageData = imageData {
+                    self.photoImageView.image = UIImage(data: imageData)
+                } else {
+                    print("error \(error)")
                 }
             })
         }
         
-        nameLabel.text = tool.name
-        categoryLabel.text = tool.category.displayName
-        secLabel.text = tool.section.displayName
-        priceLabel.text = tool.price
-        availabilityLabel.text = tool.availability
-        
+        if let user = tool.postedBy as? User {
+            
+            postedByLabel.text?.appendContentsOf(user.username!)
+            nameLabel.text = tool.name
+            categoryLabel.text = tool.category.displayName
+            secLabel.text = tool.section.displayName
+            priceLabel.text = tool.price
+            availabilityLabel.text = tool.availability
+        }
     }
 
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if let chatvc = segue.destinationViewController as? ChatViewController {
+            chatvc.tool = tool
+        }
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

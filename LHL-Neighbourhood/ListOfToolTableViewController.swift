@@ -31,14 +31,12 @@ class ListOfToolTableViewController: UITableViewController {
         
         let toolQuery = Tool.query()
         toolQuery?.whereKey("section", matchesQuery: sectionQuery)
-        toolQuery?.includeKeys(["category", "section"])
+        toolQuery?.includeKeys(["category", "section", "postedBy"])
         toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
             if let tools = tools as? [Tool] {
                 self.tools = tools
             }
         })
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,12 +47,10 @@ class ListOfToolTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return tools.count
     }
 
