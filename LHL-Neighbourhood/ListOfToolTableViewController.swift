@@ -31,7 +31,7 @@ class ListOfToolTableViewController: UITableViewController {
         
         let toolQuery = Tool.query()
         toolQuery?.whereKey("section", matchesQuery: sectionQuery)
-        toolQuery?.includeKeys(["category", "section"])
+        toolQuery?.includeKeys(["category", "section", "postedBy"])
         toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
             if let tools = tools as? [Tool] {
                 self.tools = tools

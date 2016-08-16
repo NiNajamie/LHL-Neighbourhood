@@ -13,8 +13,8 @@ class Tool: PFObject, PFSubclassing {
     
     
     @NSManaged var name: String
-    @NSManaged var photo: PFFile
-    @NSManaged var postedBy: PFUser
+    @NSManaged var photo: PFFile?
+    @NSManaged var postedBy: PFUser?
     @NSManaged var category: Category
     @NSManaged var section: Section
     @NSManaged var availability: String
