@@ -37,8 +37,6 @@ class ListOfToolTableViewController: UITableViewController {
                 self.tools = tools
             }
         })
-
-
     }
 
     override func didReceiveMemoryWarning() {

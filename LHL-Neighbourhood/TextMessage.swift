@@ -13,29 +13,20 @@ class TextMessage: PFObject, PFSubclassing {
     
     // Custom properties
     @NSManaged var text: String
-    @NSManaged var senderID: String
+    @NSManaged var senderID: User
     @NSManaged var attachment: PFFile?
     
+    @NSManaged var senderStr: String
+
+    static func parseClassName() -> String {
+        return "TextMessage"
+    }
     
-    convenience init(text:String, senderID:String, attachment:PFFile) {
+    convenience init(text:String, senderID: User, attachment:PFFile, senderStr: String) {
         self.init()
         self.text = text
         self.senderID = senderID
         self.attachment = attachment
+        self.senderStr = senderStr
     }
-    
-    static func parseClassName() -> String {
-        return "Textmessage"
-    }
-
-    //    override class func initialize() {
-    //        struct Static {
-    //            static var onceToken : dispatch_once_t = 0
-    //        }
-    //
-    //        // once
-    //        dispatch_once(&Static.onceToken) {
-    //            self.registerSubclass()
-    //        }
-    //    }
 }

@@ -50,6 +50,7 @@
 		96CC91791D5ACDB9002288FF /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC91781D5ACDB9002288FF /* BoardViewController.swift */; };
 		96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */; };
 		96CC917D1D5ACE6C002288FF /* DetailOfToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */; };
+		96EE6FD41D62C447007C8626 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE6FD31D62C447007C8626 /* Conversation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		96CC91781D5ACDB9002288FF /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfToolTableViewController.swift; sourceTree = "<group>"; };
 		96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailOfToolViewController.swift; sourceTree = "<group>"; };
+		96EE6FD31D62C447007C8626 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		D5574CFD094EF14A76A525B2 /* Pods-LHL-Neighbourhood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHL-Neighbourhood.release.xcconfig"; path = "Pods/Target Support Files/Pods-LHL-Neighbourhood/Pods-LHL-Neighbourhood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +264,7 @@
 		96CC91731D5AC058002288FF /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				96EE6FD31D62C447007C8626 /* Conversation.swift */,
 				96CC91741D5AC1DE002288FF /* TextMessage.swift */,
 				96CC91761D5AC29B002288FF /* ChatViewController.swift */,
 			);
@@ -418,6 +421,7 @@
 				078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */,
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
+				96EE6FD41D62C447007C8626 /* Conversation.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,
 				07FC125B1D5BD5CC00989AFB /* User.swift in Sources */,
 				071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */,

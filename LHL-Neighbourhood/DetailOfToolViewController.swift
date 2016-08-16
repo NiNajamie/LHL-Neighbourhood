@@ -49,12 +49,18 @@ class DetailOfToolViewController: UIViewController {
             secLabel.text = tool.section.displayName
             priceLabel.text = tool.price
             availabilityLabel.text = tool.availability
-            
         }
-        
-        
     }
 
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if let chatvc = segue.destinationViewController as? ChatViewController {
+            chatvc.tool = tool
+        }
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
