@@ -16,6 +16,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
+        
+
 
         // Do any additional setup after loading the view.
     }
@@ -25,20 +30,24 @@ class LoginViewController: UIViewController {
         //CHECK IF EMPTY
         
         if (password.text?.characters.count == 0 || userName.text?.characters.count == 0){
-        self.showAlertOnError("Error", message: "Fields can not be empty!!!" )
+            self.showAlertOnError("Error", message: "Fields can not be empty!!!" )
         }
         
         PFUser.logInWithUsernameInBackground(userName.text!, password: password.text!) { (user, error) -> Void in
             if let loggedInUser = user
             {
-//                self.showAlertOnSuccess("Welcome",message: "On Your Way to Log in Screen")
-                //take user to homepage perform segue
-                self.performSegueToHomepage()
-                print("LoggedIn")
+                print(loggedInUser)
+                
+                //                var isManager = loggedInUser["manager"]
+                //                if let isTrue == isManager{
+                if((loggedInUser["manager"]) as! Bool == true){
+                    self.performSegueTo("segueToManagerBoard")}else{
+                    self.performSegueTo("segueToHome")
+                }
             }
             else
             {
-             self.showAlertOnError("Invalid User", message: "User Doesn't Exit - Sign Up!!!")
+                self.showAlertOnError("Invalid User", message: "User Doesn't Exit - Sign Up!!!")
             }
             
         }
@@ -49,11 +58,11 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func performSegueToHomepage() {
+    func performSegueTo(viewcontroller: String) {
         
-        performSegueWithIdentifier("segueToHome", sender: self)
+        performSegueWithIdentifier(viewcontroller, sender: self)
     }
-    
+
     
     func showAlertOnError(title: String, message: String){
     
@@ -61,5 +70,15 @@ class LoginViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-
+ 
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) {
+//    //Search users
+//    searchUserInParse()
+//    
+//    dispatch_async(dispatch_get_main_queue()) {
+//    //Show number of objects etc.
+//    }
+//    }
+    
+    
 }

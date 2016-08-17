@@ -12,6 +12,7 @@ import Parse
 class User: PFUser {
     
     @NSManaged var manager: Bool
+    @NSManaged var apartment: Apartment
 
 }
 

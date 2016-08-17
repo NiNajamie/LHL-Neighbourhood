@@ -25,6 +25,8 @@ class EmergencyContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pat1.jpg")!).colorWithAlphaComponent(0.9)
         //datepicker value change
 //        postDateAndTime.addTarget(self, action: Selector("dataPickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
 
