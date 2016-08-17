@@ -858,7 +858,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mnA-i7-sQ8" kind="push" id="iEB-tA-Raz"/>
+                                    <action selector="chatButtonPressed:" destination="uKv-Vk-Bbz" eventType="touchUpInside" id="s6e-tU-RkV"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kwa-ZA-6wU">
@@ -1012,6 +1012,7 @@
                         <outlet property="postedByLabel" destination="lzN-9J-DRx" id="FAp-Y9-9w3"/>
                         <outlet property="priceLabel" destination="O1D-3f-P9t" id="LeI-8a-70O"/>
                         <outlet property="secLabel" destination="hI1-96-qWn" id="IPo-FL-3Rn"/>
+                        <segue destination="mnA-i7-sQ8" kind="push" identifier="goToChatViewController" id="u5h-sC-pDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00u-3H-ivB" userLabel="First Responder" sceneMemberID="firstResponder"/>

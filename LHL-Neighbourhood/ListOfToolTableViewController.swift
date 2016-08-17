@@ -70,7 +70,9 @@ class ListOfToolTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow {
             
             let tool = self.tools[indexPath.row]
+            
             dvc.tool = tool
+
         }
     }
     /*

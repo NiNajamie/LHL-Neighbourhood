@@ -39,16 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
         
-        //Fabric
-//        Fabric.with([Digits.self])
-//        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
 //        let currentUser = PFUser.currentUser()
-//        print(currentUser)
 //        if currentUser != nil {
-//            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("BoardViewController");
+//            
+//            let navVC = UINavigationController()
+//            
+//            navVC.viewControllers = [storyboard.instantiateViewControllerWithIdentifier("BoardViewController")]
+//            
+//            self.window?.rootViewController = navVC;
 //        }
-
-       return true
+        
+        
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

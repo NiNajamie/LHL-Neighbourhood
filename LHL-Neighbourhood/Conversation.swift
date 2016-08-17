@@ -12,20 +12,20 @@ import Parse
 
 class Conversation: PFObject, PFSubclassing {
 
-    @NSManaged var poster: PFUser
-    @NSManaged var applicant: PFUser
+    @NSManaged var owner: User
+    @NSManaged var notOwner: User
     @NSManaged var tool: Tool
-    @NSManaged var messageArray: NSMutableArray
+//    @NSManaged var messageArray: [TextMessage]
     
     static func parseClassName() -> String {
         return "Conversation"
     }
     
-    convenience init(poster: PFUser, applicant: PFUser, tool: Tool, messageArray: NSMutableArray) {
+    convenience init(owner: User, notOwner: User, tool: Tool) {
         self.init()
-        self.poster = poster
-        self.applicant = applicant
+        self.owner = owner
+        self.notOwner = notOwner
         self.tool = tool
-        self.messageArray = messageArray
+//        self.messageArray = messageArray
     }
 }
