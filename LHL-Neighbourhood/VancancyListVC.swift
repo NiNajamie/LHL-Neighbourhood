@@ -17,7 +17,9 @@ class VancancyListVC: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = false
         self.fetchFromParse()
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white.jpg")!).colorWithAlphaComponent(0.9)
     
     }
     
@@ -41,7 +43,8 @@ class VancancyListVC: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("VacancyCell", forIndexPath: indexPath) as! VacancyCell
         let room = vacancyArray[indexPath.row]
-        cell.roomLabel.text = room.room
+        //cell.textLabel?.text = room.room
+       cell.roomLabel.text = room.room
         return cell
     }
     

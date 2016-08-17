@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
         
 
@@ -61,11 +62,7 @@ class LoginViewController: UIViewController {
         
         performSegueWithIdentifier(viewcontroller, sender: self)
     }
-    
-    func performSegueToManagerBoard(){
-    
-    
-    }
+
     
     func showAlertOnError(title: String, message: String){
     

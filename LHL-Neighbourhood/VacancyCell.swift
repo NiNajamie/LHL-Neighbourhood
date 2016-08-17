@@ -10,8 +10,9 @@ import UIKit
 
 class VacancyCell: UITableViewCell {
     
-
     @IBOutlet weak var roomLabel: UILabel!
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

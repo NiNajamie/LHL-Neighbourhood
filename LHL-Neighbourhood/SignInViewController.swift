@@ -26,7 +26,19 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        self.navigationController?.navigationBarHidden = true
-                self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
+        
+        //
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "n.jpg")?.drawInRect(self.view.bounds)
+        
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
+        
+        
+        //
+//                self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
         
         self.userTypeSegmentControl.selectedSegmentIndex  = 0
         // will enable keyboard manager
@@ -207,23 +219,7 @@ class SignInViewController: UIViewController {
             }
         }
     }
-    
-    func userIsManagerQuery(username:String, isManager:Bool)
-    {
-//        let user = PFUser()
-//        let ifUserIsManager = user.query()
-//        let enteredUsername = userNameTextfield.text
-//      //  let isManager =
-//        apartmentExistQuery!.whereKey("name",  equalTo: enteredApt!)
-//        apartmentExistQuery?.findObjectsInBackgroundWithBlock {(apartments, error) in
-//            
-//            if let apartment = apartments?.first as? Apartment {
-//                completion(apt: apartment)
-//            }else{
-//                completion(apt: nil)
-//            }
-//        }
-    }
+
     
     func usernameIsTaken(completion:(userNameTaken:Bool)-> ()){
         

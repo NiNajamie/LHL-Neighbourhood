@@ -157,6 +157,7 @@
 		07E09E6F1D628D3400D98187 /* Vacancy */ = {
 			isa = PBXGroup;
 			children = (
+				071AD47C1D605AD4005A91E1 /* VacancyCell.swift */,
 				07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */,
 				07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */,
 			);
@@ -237,7 +238,6 @@
 				07FC125A1D5BD5CC00989AFB /* User.swift */,
 				96AA0BB11D5CFBE300732DF4 /* Tool.swift */,
 				07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */,
-				071AD47C1D605AD4005A91E1 /* VacancyCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -259,10 +259,10 @@
 				078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */,
 				07E09E6E1D628D1400D98187 /* SignUp */,
 				96CC91781D5ACDB9002288FF /* BoardViewController.swift */,
-				07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */,
 				07E09E6F1D628D3400D98187 /* Vacancy */,
 				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
 				071AD47E1D6064BA005A91E1 /* MainVC.swift */,
+				07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */,
 				07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */,
 				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
 				96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */,

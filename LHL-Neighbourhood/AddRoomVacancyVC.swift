@@ -14,9 +14,21 @@ class AddRoomVacancyVC: UIViewController {
     @IBOutlet weak var roomNoTextfield: UITextField!
     @IBOutlet weak var roomDetails: UITextView!
     
+    @IBOutlet weak var addRoomVacancyButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
+        
+        self.navigationController?.navigationBarHidden = false
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white.jpg")!).colorWithAlphaComponent(0.9)
+        navigationController!.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
+        roomDetails.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.1)
+//         addRoomVacancyButton.setBackgroundImage(UIImage(named: "plus.png"), forState: UIControlState.Normal)
+            }
     
     @IBAction func AddVacancyButtonPressed(sender: UIButton) {
         let room = PFObject(className:"VacantRoom")
@@ -65,4 +77,5 @@ class AddRoomVacancyVC: UIViewController {
     @IBAction func cancelButtonPressed(sender: UIButton) {
          self.dismissViewControllerAnimated(true, completion: nil)
     }
+   
 }
