@@ -44,6 +44,8 @@
 		9622E3911D5947CA00CD1300 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9622E3901D5947CA00CD1300 /* AudioToolbox.framework */; };
 		9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3961D594B4B00CD1300 /* SignInViewController.swift */; };
 		967F3E671D612FAF0062B71A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F3E661D612FAF0062B71A /* Category.swift */; };
+		96A810781D65011900261A9F /* ListConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A810771D65011900261A9F /* ListConversationTableViewController.swift */; };
+		96A8107A1D651C0E00261A9F /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A810791D651C0E00261A9F /* ChatStoryboard.storyboard */; };
 		96AA0BB01D5CF8E500732DF4 /* AddToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */; };
 		96AA0BB21D5CFBE300732DF4 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA0BB11D5CFBE300732DF4 /* Tool.swift */; };
 		96CC91571D5A38ED002288FF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC91561D5A38ED002288FF /* Section.swift */; };
@@ -99,6 +101,8 @@
 		9622E3901D5947CA00CD1300 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9622E3961D594B4B00CD1300 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		967F3E661D612FAF0062B71A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		96A810771D65011900261A9F /* ListConversationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConversationTableViewController.swift; sourceTree = "<group>"; };
+		96A810791D651C0E00261A9F /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
 		96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToolViewController.swift; sourceTree = "<group>"; };
 		96AA0BB11D5CFBE300732DF4 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		96CC91561D5A38ED002288FF /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			children = (
 				9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */,
 				07A7EA9A1D5D5EA400A1AE33 /* Main.storyboard */,
+				96A810791D651C0E00261A9F /* ChatStoryboard.storyboard */,
 				07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */,
 			);
 			name = View;
@@ -289,6 +294,7 @@
 				96EE6FD31D62C447007C8626 /* Conversation.swift */,
 				96CC91741D5AC1DE002288FF /* TextMessage.swift */,
 				96CC91761D5AC29B002288FF /* ChatViewController.swift */,
+				96A810771D65011900261A9F /* ListConversationTableViewController.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				9622E3701D59436700CD1300 /* LaunchScreen.storyboard in Resources */,
 				9622E36D1D59436700CD1300 /* Assets.xcassets in Resources */,
 				07A7EA9B1D5D5EA400A1AE33 /* Main.storyboard in Resources */,
+				96A8107A1D651C0E00261A9F /* ChatStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +449,7 @@
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
 				078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */,
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,
+				96A810781D65011900261A9F /* ListConversationTableViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
 				96EE6FD41D62C447007C8626 /* Conversation.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,

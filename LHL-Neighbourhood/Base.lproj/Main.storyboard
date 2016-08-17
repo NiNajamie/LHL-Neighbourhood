@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIm-6O-Amt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIm-6O-Amt">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -16,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="wxh-sV-rAD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ToolCell" id="wxh-sV-rAD">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wxh-sV-rAD" id="uvs-PJ-c71">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -43,7 +44,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki1-TV-Cmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008" y="181"/>
+            <point key="canvasLocation" x="1658" y="140"/>
         </scene>
         <!--Community Board-->
         <scene sceneID="hd2-xh-brB">
@@ -57,72 +58,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myu-08-8nh">
-                                <rect key="frame" x="78" y="83" width="147" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myu-08-8nh">
+                                <rect key="frame" x="86.5" y="83" width="147" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="YxL-Ai-FJa"/>
+                                    <constraint firstAttribute="height" constant="30" id="asc-9X-B7T"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Share Tools"/>
                                 <connections>
-                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowShare" id="2fQ-hM-Hy2"/>
+                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowShare" id="7X0-5g-nfP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="742" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBl-zp-DSW">
-                                <rect key="frame" x="10" y="145" width="137" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="742" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBl-zp-DSW">
+                                <rect key="frame" x="143.5" y="144" width="33" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Buy / Sell"/>
+                                <state key="normal" title="Buy"/>
+                                <connections>
+                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowBuy" id="Cee-iD-a7H"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-qn-aH9">
-                                <rect key="frame" x="1" y="205" width="175" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="vyk-fE-PKO"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-qn-aH9">
+                                <rect key="frame" x="104" y="205" width="112" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Posts\Notice"/>
                                 <connections>
                                     <segue destination="I9B-S5-VDq" kind="push" id="b65-hO-7aU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="745" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-iD-z6x">
-                                <rect key="frame" x="20" y="269" width="175" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="GMm-5E-5za"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="745" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-iD-z6x">
+                                <rect key="frame" x="88" y="273" width="144" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Rooms Available"/>
                                 <connections>
                                     <segue destination="d4w-RT-HKV" kind="push" id="Yhw-hF-Kwj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-JY-1Dt">
-                                <rect key="frame" x="22" y="324" width="154" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transparent" translatesAutoresizingMaskIntoConstraints="NO" id="rTf-1t-BWK">
+                                <rect key="frame" x="1" y="494" width="319" height="74"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHo-Wo-lR9">
+                                <rect key="frame" x="145" y="116" width="31" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Sell"/>
+                                <connections>
+                                    <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowSell" id="k0p-Dd-YYf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-JY-1Dt">
+                                <rect key="frame" x="93.5" y="332" width="133" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Manager Board"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="transparent" translatesAutoresizingMaskIntoConstraints="NO" id="rTf-1t-BWK">
-                                <rect key="frame" x="1" y="505" width="319" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="83" id="pcB-KH-nwr"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rTf-1t-BWK" secondAttribute="trailing" id="2wK-lQ-QG1"/>
-                            <constraint firstItem="rTf-1t-BWK" firstAttribute="bottom" secondItem="gCh-lc-fIs" secondAttribute="top" id="7OD-MQ-2ZI"/>
-                            <constraint firstItem="GBl-zp-DSW" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="AO8-f9-CMW"/>
-                            <constraint firstItem="s2g-qn-aH9" firstAttribute="leading" secondItem="Lwt-19-eGt" secondAttribute="leadingMargin" constant="-15" id="Gjw-zU-X8P"/>
-                            <constraint firstItem="rTf-1t-BWK" firstAttribute="leading" secondItem="s2g-qn-aH9" secondAttribute="leading" id="HfB-hk-7de"/>
-                            <constraint firstItem="s2g-qn-aH9" firstAttribute="top" secondItem="GBl-zp-DSW" secondAttribute="bottom" constant="41" id="IRF-dK-ABi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MIk-JY-1Dt" secondAttribute="trailing" constant="62" id="JSg-Mk-2JI"/>
-                            <constraint firstItem="myu-08-8nh" firstAttribute="top" secondItem="DgG-v6-W2Y" secondAttribute="bottom" constant="145" id="LNu-BI-IuH"/>
-                            <constraint firstItem="s2g-qn-aH9" firstAttribute="trailing" secondItem="MIk-JY-1Dt" secondAttribute="trailing" id="M9y-mX-453"/>
-                            <constraint firstItem="MIk-JY-1Dt" firstAttribute="leading" secondItem="myu-08-8nh" secondAttribute="leading" id="Sx2-Pe-W2E"/>
-                            <constraint firstItem="MIk-JY-1Dt" firstAttribute="leading" secondItem="GBl-zp-DSW" secondAttribute="leading" id="V6x-Gf-knB"/>
-                            <constraint firstItem="MIk-JY-1Dt" firstAttribute="top" secondItem="4c6-iD-z6x" secondAttribute="bottom" constant="25" id="Wjm-Xo-v2R"/>
-                            <constraint firstItem="4c6-iD-z6x" firstAttribute="leading" secondItem="Lwt-19-eGt" secondAttribute="leadingMargin" constant="4" id="a6h-7p-pPJ"/>
-                            <constraint firstItem="4c6-iD-z6x" firstAttribute="top" secondItem="s2g-qn-aH9" secondAttribute="bottom" constant="34" id="mCe-VF-pev"/>
-                            <constraint firstItem="4c6-iD-z6x" firstAttribute="centerY" secondItem="Lwt-19-eGt" secondAttribute="centerY" id="qMb-ZB-ShO"/>
-                            <constraint firstItem="MIk-JY-1Dt" firstAttribute="leading" secondItem="Lwt-19-eGt" secondAttribute="leadingMargin" constant="72" id="vBG-mh-EIs"/>
-                            <constraint firstItem="myu-08-8nh" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="yuA-kj-5Vj"/>
+                            <constraint firstItem="myu-08-8nh" firstAttribute="top" secondItem="DgG-v6-W2Y" secondAttribute="bottom" constant="19" id="0ci-pB-3K5"/>
+                            <constraint firstItem="GBl-zp-DSW" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="7BH-8o-1Wj"/>
+                            <constraint firstItem="s2g-qn-aH9" firstAttribute="top" secondItem="GBl-zp-DSW" secondAttribute="bottom" constant="27" id="9Kj-8g-lc2"/>
+                            <constraint firstItem="gCh-lc-fIs" firstAttribute="top" secondItem="rTf-1t-BWK" secondAttribute="bottom" id="NqS-nS-zmB"/>
+                            <constraint firstItem="GBl-zp-DSW" firstAttribute="top" secondItem="myu-08-8nh" secondAttribute="bottom" constant="31" id="OHB-9P-ueF"/>
+                            <constraint firstItem="lHo-Wo-lR9" firstAttribute="top" secondItem="myu-08-8nh" secondAttribute="bottom" constant="3" id="T5H-2Y-YHZ"/>
+                            <constraint firstItem="4c6-iD-z6x" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="TO6-Nh-bn0"/>
+                            <constraint firstItem="myu-08-8nh" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="amd-xC-53u"/>
+                            <constraint firstItem="s2g-qn-aH9" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="gZv-zS-BKX"/>
+                            <constraint firstItem="MIk-JY-1Dt" firstAttribute="top" secondItem="4c6-iD-z6x" secondAttribute="bottom" constant="25" id="hns-pF-u7g"/>
+                            <constraint firstItem="lHo-Wo-lR9" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="huG-N8-2aO"/>
+                            <constraint firstItem="rTf-1t-BWK" firstAttribute="leading" secondItem="Lwt-19-eGt" secondAttribute="leading" constant="1" id="jZf-mf-JCC"/>
+                            <constraint firstAttribute="trailing" secondItem="rTf-1t-BWK" secondAttribute="trailing" id="p42-dL-Uj3"/>
+                            <constraint firstItem="MIk-JY-1Dt" firstAttribute="centerX" secondItem="Lwt-19-eGt" secondAttribute="centerX" id="r19-Do-0wo"/>
+                            <constraint firstItem="4c6-iD-z6x" firstAttribute="top" secondItem="s2g-qn-aH9" secondAttribute="bottom" constant="34" id="x8c-ad-cTk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Community Board" id="UBM-OK-ipF"/>
@@ -285,7 +290,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xjl-SK-OfY" id="5s3-p8-ve0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZK-IF-9du">
@@ -440,7 +445,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzs-kG-LW9" id="wFU-Ct-A6b">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-MN-NhY">
@@ -481,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yct-SV-pJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="828"/>
+            <point key="canvasLocation" x="1099" y="902"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9v0-F7-1NC">
@@ -832,7 +837,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoE-lF-Jpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="iap-Wx-uB7"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="-128"/>
+            <point key="canvasLocation" x="2154" y="-128"/>
         </scene>
         <!--Detail of Tool-->
         <scene sceneID="rgF-11-Prm">
@@ -1017,7 +1022,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00u-3H-ivB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="488"/>
+            <point key="canvasLocation" x="2154" y="488"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="ZF5-5i-Fmy">
@@ -1036,7 +1041,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKH-vf-d9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2839" y="488"/>
+            <point key="canvasLocation" x="2556" y="488"/>
+        </scene>
+        <!--ConversationList-->
+        <scene sceneID="1vQ-Xg-uQN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatStoryboard" referencedIdentifier="ConversationList" id="hSq-2d-AAK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyC-FG-biw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812.5" y="294"/>
         </scene>
         <!--Neighbourhood-->
         <scene sceneID="Cka-ac-x6D">
@@ -1202,6 +1215,7 @@
         <image name="transparent" width="379" height="74"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qck-OT-8X3"/>
+        <segue reference="9c5-cw-2Tk"/>
+        <segue reference="Cee-iD-a7H"/>
     </inferredMetricsTieBreakers>
 </document>
