@@ -42,16 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageController.backgroundColor = UIColor.whiteColor()
         
         
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let currentUser = PFUser.currentUser()
-        if currentUser != nil {
-            
-            let navVC = UINavigationController()
-            
-            navVC.viewControllers = [storyboard.instantiateViewControllerWithIdentifier("BoardViewController")]
-            
-            self.window?.rootViewController = navVC;
-        }
+//        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//        let currentUser = PFUser.currentUser()
+//        if currentUser != nil {
+//            
+//            let navVC = UINavigationController()
+//            
+//            navVC.viewControllers = [storyboard.instantiateViewControllerWithIdentifier("BoardViewController")]
+//            
+//            self.window?.rootViewController = navVC;
+//        }
         
         
         return true
