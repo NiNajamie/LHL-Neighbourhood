@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("BoardViewController");
 //        }
 
-        return true
+       return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

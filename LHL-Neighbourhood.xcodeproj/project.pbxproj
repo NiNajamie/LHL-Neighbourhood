@@ -26,6 +26,7 @@
 		07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */; };
 		07A7EAAF1D604C7100A1AE33 /* VacantRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */; };
 		07E09E711D629FFB00D98187 /* Apartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E09E701D629FFB00D98187 /* Apartment.swift */; };
+		07E09E731D63C38B00D98187 /* ManagerBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */; };
 		07FC125B1D5BD5CC00989AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC125A1D5BD5CC00989AFB /* User.swift */; };
 		5328413C7BFFD558A952C3A2 /* Pods_LHL_Neighbourhood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */; };
 		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VancancyListVC.swift; sourceTree = "<group>"; };
 		07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacantRoom.swift; sourceTree = "<group>"; };
 		07E09E701D629FFB00D98187 /* Apartment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apartment.swift; sourceTree = "<group>"; };
+		07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerBoardVC.swift; sourceTree = "<group>"; };
 		07FC125A1D5BD5CC00989AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHL_Neighbourhood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5813EFB7EB3CE609600BCECE /* Pods-LHL-Neighbourhood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHL-Neighbourhood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHL-Neighbourhood/Pods-LHL-Neighbourhood.debug.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */,
 				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
 				96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */,
+				07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,
+				07E09E731D63C38B00D98187 /* ManagerBoardVC.swift in Sources */,
 				07FC125B1D5BD5CC00989AFB /* User.swift in Sources */,
 				071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */,
 				07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */,

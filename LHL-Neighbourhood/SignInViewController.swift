@@ -25,7 +25,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var apartmentTextfield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
+       self.navigationController?.navigationBarHidden = true
+                self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
+        
         self.userTypeSegmentControl.selectedSegmentIndex  = 0
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
@@ -77,6 +79,8 @@ class SignInViewController: UIViewController {
     @IBAction func segmentPressed(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 1
         {
+//             self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gray.jpg")!).colorWithAlphaComponent(0.9)
+//            self.view?.contentMode = UIViewContentMode.ScaleAspectFill
             self.view.backgroundColor = UIColor.lightGrayColor()
             apartmentTextfield.placeholder = "Create Apartment"
             clearTextfields()
@@ -140,19 +144,6 @@ class SignInViewController: UIViewController {
         }
         
     }
-    
-    
-    
-    //
-    //    { (apartments, error) -> Bool in
-    //    if (apartments!.count > 0) {
-    //    return true
-    //    }
-    //    } else {
-    //    return false
-    //    }
-    //
-    //}
     
     func saveUser(apartment: Apartment?, isManager:Bool) {
         self.usernameIsTaken { isTaken in
@@ -269,4 +260,23 @@ class SignInViewController: UIViewController {
         userNameTextfield.text = ""
         passwordTextfield.text = ""
     }
+    
+    
 }
+//extension UIView {
+//    func addBackground(image: String) {
+//        // screen width and height:
+//        let width = UIScreen.mainScreen().bounds.size.width
+//        let height = UIScreen.mainScreen().bounds.size.height
+//        
+//        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
+//        imageViewBackground.image = UIImage(named: image)
+//        
+//        // you can change the content mode:
+//        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
+//        
+//        self.addSubview(imageViewBackground)
+//        self.sendSubviewToBack(imageViewBackground)
+//    }}
+//
+

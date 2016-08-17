@@ -25,7 +25,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uKv-Vk-Bbz" kind="push" id="kxy-W4-7cr"/>
+                                    <segue destination="uKv-Vk-Bbz" kind="push" identifier="ToolCell" id="kxy-W4-7cr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,16 +75,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2g-qn-aH9">
                                 <rect key="frame" x="101" y="433" width="119" height="30"/>
                                 <state key="normal" title="Emergency Posts"/>
-                                <connections>
-                                    <segue destination="dMo-yH-J2e" kind="modal" id="ISO-gW-Yuu"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c6-iD-z6x">
                                 <rect key="frame" x="110" y="500" width="101" height="30"/>
                                 <state key="normal" title="Add Vacancy"/>
-                                <connections>
-                                    <segue destination="d4w-RT-HKV" kind="push" id="8Gg-cv-cYD"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,11 +137,59 @@
                         <outlet property="password" destination="o2E-RR-crF" id="Hzc-79-Gs5"/>
                         <outlet property="userName" destination="HnX-oo-9kO" id="9Tk-Ll-AgD"/>
                         <segue destination="e8Q-G9-ucg" kind="push" identifier="segueToHome" id="9c5-cw-2Tk"/>
+                        <segue destination="DJB-KR-JjJ" kind="modal" identifier="segueToManagerBoard" id="Ajl-m1-KGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6N-B1-B03" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="838"/>
+            <point key="canvasLocation" x="830" y="134"/>
+        </scene>
+        <!--Manager BoardVC-->
+        <scene sceneID="9Y8-OH-2AO">
+            <objects>
+                <viewController storyboardIdentifier="ManagerBoard" id="DJB-KR-JjJ" customClass="ManagerBoardVC" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CC2-iG-9cl"/>
+                        <viewControllerLayoutGuide type="bottom" id="iMK-eU-JsF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="go3-Oe-9ac">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WF-MF-EuV">
+                                <rect key="frame" x="70" y="124" width="163" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="FY6-Kh-vc9"/>
+                                    <constraint firstAttribute="height" constant="52" id="VTr-8N-ENr"/>
+                                </constraints>
+                                <state key="normal" title="Notice Board"/>
+                                <connections>
+                                    <segue destination="dMo-yH-J2e" kind="modal" id="glo-bw-QuG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chH-KR-Xtp">
+                                <rect key="frame" x="76" y="260" width="151" height="58"/>
+                                <state key="normal" title="Update Vacancy"/>
+                                <connections>
+                                    <segue destination="dCL-kb-Nso" kind="modal" id="4kd-k7-IAV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="chH-KR-Xtp" secondAttribute="trailing" constant="77" id="CyJ-pl-68F"/>
+                            <constraint firstItem="4WF-MF-EuV" firstAttribute="top" secondItem="CC2-iG-9cl" secondAttribute="bottom" constant="104" id="O1M-fe-oyA"/>
+                            <constraint firstItem="chH-KR-Xtp" firstAttribute="centerX" secondItem="4WF-MF-EuV" secondAttribute="centerX" id="Rfu-sh-SqC"/>
+                            <constraint firstItem="chH-KR-Xtp" firstAttribute="leading" secondItem="go3-Oe-9ac" secondAttribute="leadingMargin" constant="60" id="nFS-Zb-2Pe"/>
+                            <constraint firstItem="iMK-eU-JsF" firstAttribute="top" secondItem="chH-KR-Xtp" secondAttribute="bottom" constant="250" id="ohG-to-sYH"/>
+                            <constraint firstItem="chH-KR-Xtp" firstAttribute="top" secondItem="4WF-MF-EuV" secondAttribute="bottom" constant="84" id="qOK-4b-EIj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Raq-yI-CRg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Bq-5t-sp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087" y="862"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="T4C-fY-jCS">
@@ -208,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQp-3U-Prj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="1512"/>
+            <point key="canvasLocation" x="1926" y="1788"/>
         </scene>
         <!--Add Room VacancyVC-->
         <scene sceneID="Q7T-PN-OH6">
@@ -264,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsS-0l-Jfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="-1235"/>
+            <point key="canvasLocation" x="939" y="1815"/>
         </scene>
         <!--Vacant Rooms-->
         <scene sceneID="cCK-4M-12T">
@@ -312,11 +354,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Vacant Rooms" id="vyo-S5-aMU">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="zsC-DT-YQK">
-                            <connections>
-                                <segue destination="dCL-kb-Nso" kind="modal" id="eY5-cj-07E"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="zsC-DT-YQK"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="QdG-km-4re" id="rKT-SL-WP9"/>
@@ -324,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yct-SV-pJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="-557"/>
+            <point key="canvasLocation" x="116" y="765"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9v0-F7-1NC">
@@ -359,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idu-3n-2qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661" y="-557"/>
+            <point key="canvasLocation" x="-266" y="1251"/>
         </scene>
         <!--Post Content View Controller-->
         <scene sceneID="rkM-Dj-xSN">
@@ -450,7 +488,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4L-dz-WEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="1117"/>
+            <point key="canvasLocation" x="2810" y="1117"/>
         </scene>
         <!--Emergency Post DisplayVC-->
         <scene sceneID="hMV-ib-NL8">
@@ -468,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGJ-MP-Df2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2720" y="1328"/>
+            <point key="canvasLocation" x="3252" y="1328"/>
         </scene>
         <!--Add Emergency-->
         <scene sceneID="COO-9X-A89">
@@ -568,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzM-wV-ZG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="870"/>
+            <point key="canvasLocation" x="1882" y="987"/>
         </scene>
         <!--Add a Tool-->
         <scene sceneID="n1W-1e-XOb">
@@ -898,7 +936,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="602" y="116"/>
+            <point key="canvasLocation" x="490" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QyX-uE-MWn">
@@ -934,11 +972,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iq-Yt-OLH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="-557"/>
+            <point key="canvasLocation" x="-323" y="539"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7DY-Lc-7zb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYV-f9-fkX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yjj-4B-v4e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DJB-KR-JjJ" kind="relationship" relationship="rootViewController" id="JUQ-ke-h5l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Viv-5r-Iiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="1492"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8Gg-cv-cYD"/>
-        <segue reference="nP9-Pr-QSI"/>
+        <segue reference="Ajl-m1-KGQ"/>
+        <segue reference="9c5-cw-2Tk"/>
     </inferredMetricsTieBreakers>
 </document>
