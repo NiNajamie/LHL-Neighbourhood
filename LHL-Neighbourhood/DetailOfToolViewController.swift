@@ -52,15 +52,76 @@ class DetailOfToolViewController: UIViewController {
         }
     }
 
+    
+    @IBAction func chatButtonPressed(sender: UIButton) {
+        
+        
+        if let user = tool.postedBy as? User,
+            let currentUser = User.currentUser() {
+            
+            
+            let conversationQuery = Conversation.query()!
+            conversationQuery.whereKey("owner", equalTo: user)
+            conversationQuery.whereKey("notOwner", equalTo: currentUser)
+            conversationQuery.includeKey("tool")
+            conversationQuery.includeKey("tool.postedBy")
+            conversationQuery.includeKey("owner")
+            conversationQuery.includeKey("notOwner")
+            conversationQuery.findObjectsInBackgroundWithBlock({ (conversations, error) in
+                
+                if let conversations = conversations as? [Conversation],
+                let conversation = conversations.first {
+                    
+                    self.performSegueWithIdentifier("goToChatViewController", sender: conversation)
+                    
+                    
+                }else {
+                    
+                    let conversation = Conversation(owner: user, notOwner: currentUser, tool: self.tool)
+                    
+                    conversation.saveInBackgroundWithBlock({ (success, error) in
+                        
+                        self.performSegueWithIdentifier("goToChatViewController", sender: conversation)
+
+                        
+                    })
+
+                    
+                }
+                
+                
+            })
+            
+        }
+
+
+        
+    }
+    
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        if let chatvc = segue.destinationViewController as? ChatViewController {
-            chatvc.tool = tool
+        if segue.identifier == "goToChatViewController" {
+            
+            if let conversation = sender as? Conversation {
+                let chatvc = segue.destinationViewController as! ChatViewController
+                chatvc.conversation = conversation
+
+            }
+            
         }
+        
+        
+
+            
+//            conversation.tool = tool
+//            chatvc.tool = tool
+//            print("Passing item--\(chatvc.conversation)")
+            
+        
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

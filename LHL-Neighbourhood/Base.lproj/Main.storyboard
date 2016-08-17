@@ -23,7 +23,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uKv-Vk-Bbz" kind="push" id="kxy-W4-7cr"/>
+                                    <segue destination="uKv-Vk-Bbz" kind="push" identifier="ToolCell" id="kxy-W4-7cr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -47,7 +47,7 @@
         <!--Community Board-->
         <scene sceneID="hd2-xh-brB">
             <objects>
-                <viewController id="e8Q-G9-ucg" customClass="BoardViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoardViewController" id="e8Q-G9-ucg" customClass="BoardViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DgG-v6-W2Y"/>
                         <viewControllerLayoutGuide type="bottom" id="gCh-lc-fIs"/>
@@ -718,7 +718,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mnA-i7-sQ8" kind="push" id="iEB-tA-Raz"/>
+                                    <action selector="chatButtonPressed:" destination="uKv-Vk-Bbz" eventType="touchUpInside" id="s6e-tU-RkV"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kwa-ZA-6wU">
@@ -872,6 +872,7 @@
                         <outlet property="postedByLabel" destination="lzN-9J-DRx" id="FAp-Y9-9w3"/>
                         <outlet property="priceLabel" destination="O1D-3f-P9t" id="LeI-8a-70O"/>
                         <outlet property="secLabel" destination="hI1-96-qWn" id="IPo-FL-3Rn"/>
+                        <segue destination="mnA-i7-sQ8" kind="push" identifier="goToChatViewController" id="u5h-sC-pDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00u-3H-ivB" userLabel="First Responder" sceneMemberID="firstResponder"/>

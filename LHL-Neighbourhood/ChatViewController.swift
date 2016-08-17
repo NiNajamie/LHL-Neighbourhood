@@ -13,76 +13,81 @@ import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
-    // Poster's comment
+    // Owner's comment
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
     
-    // Applicant's comment
+    // notOwner's comment
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
     
     //  To store messages sent and received in Parse
-    var messages = [JSQMessage]()
+    var messages = [TextMessage]()
+//    var messages = [JSQMessage]()
     
-    var tool: Tool!
     
-    var conversation = Conversation()
+//    var tool: Tool!
     
-    // currentUser == applicant
-    var applicant = User.currentUser()
+    var conversation:Conversation!
+
+    
+    // currentUser == receiver
+//    var applicant = User.currentUser()
+    
+
+    
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // chat with Poster
-        title = "Chat with \(tool.postedBy!.username!)"
-        
         self.setup()
-        self.addDemoMessages()
+
         
-        conversation.messageArray = NSMutableArray()
+        // LEFT SIDE == receiver
+        // Set title with Poster name
+        if let postedBy = conversation.tool.postedBy {
+            if let title1 = postedBy.username {
+                title = title1
+            }
+        }
+        getMessages()
         
-        
-//        let postedByQuery = Tool.query()!.whereKey("postedBy", equalTo: self.tool)
-//        
-//        let toolQuery = Tool.query()
-////        toolQuery?.whereKey("postedBy", matchesQuery: postedByQuery)
-//        toolQuery?.includeKeys(["category", "section", "postedBy"])
-//        toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
-//            if let tools = tools as? [Tool] {
-//                self.tools = tools
-//            }
-//        })
-//
-//        tool.postedBy
     }
+    
+    // MARK: - Parse
+    func getMessages() {
+        let query = TextMessage.query()!
+        query.whereKey("conversation", equalTo: conversation)
+        query.includeKey("sender")
+        query.findObjectsInBackgroundWithBlock {(messages, error) -> Void in
+            
+            if let messages = messages as? [TextMessage] {
+                
+                self.messages = messages
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func reloadMessagesView() {
-        self.collectionView?.reloadData()
-    }
+
 }
 
 //MARK - Setup
 extension ChatViewController {
-    func addDemoMessages() {
-        
-        for i in 1...5 {
-
-            let sender = (i%2 == 0) ? tool.postedBy!.username! : self.senderId
-            let messageContent = "Message \(i)"
-            let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
-            self.messages += [message]
-        }
-        self.reloadMessagesView()
-    }
     
     func setup() {
-        self.senderId = UIDevice.currentDevice().identifierForVendor?.UUIDString
-        self.senderDisplayName = UIDevice.currentDevice().identifierForVendor?.UUIDString
+        let user = User.currentUser()
+        self.senderId = user!.objectId! as String
+        self.senderDisplayName = user?.username
+        
+//        self.senderId = UIDevice.currentDevice().identifierForVendor?.UUIDString
+//        self.senderDisplayName = UIDevice.currentDevice().identifierForVendor?.UUIDString
     }
 }
 
@@ -95,8 +100,11 @@ extension ChatViewController {
     
     // which message to display where
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        let data = self.messages[indexPath.row]
-        return data
+        
+        let msg = self.messages[indexPath.row]
+        let jsq = JSQMessage(senderId: msg.sender.objectId, displayName: msg.sender.username, text: msg.text)
+        
+        return jsq
     }
     
     // what to do when a message is deleted (delete if from messages array)
@@ -107,12 +115,20 @@ extension ChatViewController {
     // which bubble to choose (outgoing if we are the sender, and incoming otherwise)
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         let data = messages[indexPath.row]
-        switch(data.senderId) {
-        case self.senderId:
-            return self.outgoingBubble
-        default:
+        
+        switch data.sender.username! {
+        case self.senderId! :
+            print(data.sender.username, self.senderId!)
             return self.incomingBubble
+        default:
+            return self.outgoingBubble
         }
+//        switch(data.senderId) {
+//        case self.senderId:
+//            return self.outgoingBubble
+//        default:
+//            return self.incomingBubble
+//        }
     }
     // what to use as an avatar (for now we'll return nil and will not show avatars yet)
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -141,41 +157,62 @@ extension ChatViewController {
 
 //MARK - Toolbar
 extension ChatViewController {
+    
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
         
-        // Add a messageObject into array
-        self.messages += [message]
-        self.sendMessageToParse(message)
+        
+        let message = TextMessage(text: text, sender: User.currentUser(), conversation: conversation)
+        
+        if let msg = message {
+            // Add a messageObject into array
+//            conversation.messageArray.addObject(msg)
+            
+            msg.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                    print("Successfully Saved!")
+                } else {
+                    // There was a problem, check error.description
+                    print("Error for saving")
+                }
+            }
+            self.getMessages()
+        }
+        
+        
+//        self.sendMessageToParse(message!)
         self.finishSendingMessage()
     }
-    
-    // will do nothing, but it will prevent the app from crashing.
+//    // will do nothing, but it will prevent the app from crashing.
     override func didPressAccessoryButton(sender: UIButton!) {
     }
 }
 
 
-//MARK - Parse
-extension ChatViewController {
-    
-    // Saving msg and senderID into Parse
-    func sendMessageToParse(message: JSQMessage) {
-        let messageToSend = TextMessage()
-        messageToSend.text = message.text
-        messageToSend.senderStr = self.senderId
-        
-        messageToSend.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                // The object has been saved.
-                print("Successfully Saved!--\(messageToSend.text)")
-            } else {
-                // There was a problem, check error.description
-                print("Error for saving")
-            }
-        }
-    }
-
-    
-}
+////MARK - Parse
+//extension ChatViewController {
+//    
+//    // Saving msg into Parse
+//    func sendMessageToParse(message: TextMessage) {
+//        
+//        let messageToSend = TextMessage()
+//        messageToSend.text = message.text
+//        messageToSend.sender = message.sender
+//        messageToSend.receiver = message.receiver
+//        messageToSend.conversation = message.conversation
+//
+//        messageToSend.saveInBackgroundWithBlock {
+//            (success: Bool, error: NSError?) -> Void in
+//            if (success) {
+//                // The object has been saved.
+//                print("Successfully Saved!--\(messageToSend.text)")
+//            } else {
+//                // There was a problem, check error.description
+//                print("Error for saving")
+//            }
+//        }
+//    }
+//
+//    
+//}
