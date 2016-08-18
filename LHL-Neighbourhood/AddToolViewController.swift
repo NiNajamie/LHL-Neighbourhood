@@ -127,7 +127,7 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         tool.price = priceTextField.text ?? "$0"
         tool.postedBy = PFUser.currentUser()!
         
-        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.25)
         let imageFile = PFFile(data: imageData!)
         tool.photo = imageFile!
         
