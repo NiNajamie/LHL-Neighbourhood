@@ -16,7 +16,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="wxh-sV-rAD">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wxh-sV-rAD" id="uvs-PJ-c71">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -90,14 +90,6 @@
                                     <segue destination="d4w-RT-HKV" kind="push" id="Yhw-hF-Kwj"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-JY-1Dt">
-                                <rect key="frame" x="94" y="340" width="133" height="34"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Manager Board"/>
-                                <connections>
-                                    <segue destination="DJB-KR-JjJ" kind="push" id="7kU-yq-t5C"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="transparent" translatesAutoresizingMaskIntoConstraints="NO" id="rTf-1t-BWK">
                                 <rect key="frame" x="1" y="494" width="319" height="74"/>
                             </imageView>
@@ -115,6 +107,14 @@
                                 <state key="normal" title="Buy"/>
                                 <connections>
                                     <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowBuy" id="3he-Vr-rzk"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-JY-1Dt">
+                                <rect key="frame" x="94" y="340" width="133" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Manager Board"/>
+                                <connections>
+                                    <segue destination="DJB-KR-JjJ" kind="push" id="0Qw-Gk-hVe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,6 +144,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="managerBoardButton" destination="MIk-JY-1Dt" id="cY4-cq-M3h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PU-Bb-3Eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -438,10 +441,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="VacancyCell" rowHeight="40" id="bzs-kG-LW9" customClass="VacancyCell" customModule="LHL_Neighbourhood" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzs-kG-LW9" id="wFU-Ct-A6b">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-MN-NhY">
@@ -481,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yct-SV-pJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="1083"/>
+            <point key="canvasLocation" x="725" y="1085"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9v0-F7-1NC">
@@ -1283,9 +1286,8 @@
         <image name="transparent" width="379" height="74"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ncs-Jr-J83"/>
-        <segue reference="Ajl-m1-KGQ"/>
-        <segue reference="9c5-cw-2Tk"/>
+        <segue reference="CRm-vq-vne"/>
+        <segue reference="0Qw-Gk-hVe"/>
         <segue reference="3he-Vr-rzk"/>
     </inferredMetricsTieBreakers>
 </document>
