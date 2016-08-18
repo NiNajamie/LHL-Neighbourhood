@@ -13,29 +13,24 @@ import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
-    // Owner's comment
+    // receiver's comment
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
     
-    // notOwner's comment
+    // sender's comment
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
     
     //  To store messages sent and received in Parse
     var messages = [TextMessage]()
-    
-    
-    
-    var conversation:Conversation!
+    var conversation: Conversation!
 
-    
-    // currentUser == receiver
-//    var applicant = User.currentUser()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
         
         // LEFT SIDE == receiver
-        // Set title with Poster name
+        // Set title with receiver name
         if let title1 = conversation.owner.username {
             title = title1
         }
@@ -117,7 +112,12 @@ extension ChatViewController {
     
     // what to use as an avatar (for now we'll return nil and will not show avatars yet)
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        
+        let msg = self.messages[indexPath.row]
+        let jsq = JSQMessage(senderId: msg.sender.objectId, displayName: msg.sender.username, text: msg.text)
+        
+        return JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(jsq.senderDisplayName, backgroundColor: UIColor.lightGrayColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(10), diameter: 50)
+        
     }
     
     // functions returns sender display name for each message bubble - it will be used to show who sent each message.
@@ -149,9 +149,6 @@ extension ChatViewController {
         let message = TextMessage(text: text, sender: User.currentUser(), conversation: conversation)
         
         if let msg = message {
-            // Add a messageObject into array
-//            conversation.messageArray.addObject(msg)
-            
             msg.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
@@ -171,30 +168,3 @@ extension ChatViewController {
     }
 }
 
-
-////MARK - Parse
-//extension ChatViewController {
-//    
-//    // Saving msg into Parse
-//    func sendMessageToParse(message: TextMessage) {
-//        
-//        let messageToSend = TextMessage()
-//        messageToSend.text = message.text
-//        messageToSend.sender = message.sender
-//        messageToSend.receiver = message.receiver
-//        messageToSend.conversation = message.conversation
-//
-//        messageToSend.saveInBackgroundWithBlock {
-//            (success: Bool, error: NSError?) -> Void in
-//            if (success) {
-//                // The object has been saved.
-//                print("Successfully Saved!--\(messageToSend.text)")
-//            } else {
-//                // There was a problem, check error.description
-//                print("Error for saving")
-//            }
-//        }
-//    }
-//
-//    
-//}

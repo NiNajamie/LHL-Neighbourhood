@@ -31,19 +31,28 @@ class ListConversationTableViewController: UITableViewController {
         
         
         let query = PFQuery.orQueryWithSubqueries([queryNotOwner, queryOwner])
-        
-//        let query = TextMessage.query()!
-//        query.whereKey("conversation", equalTo: conversation)
         query.includeKeys(["tool", "owner", "notOwner"])
-        
         query.findObjectsInBackgroundWithBlock {(conversations, error) -> Void in
 
             if let conversations = conversations as? [Conversation] {
                 self.conversations = conversations
+                
+                // Find "userA talking to userA" and remove it from the list
+                for i in 0..<self.conversations.count {
+
+                    if self.conversations[i].notOwner.username! == self.conversations[i].owner.username! {
+//                        if let index = self.conversations.indexOf(self.conversations[i]) {
+                            self.conversations.removeAtIndex(i)
+                            break
+//                        }
+                    }
+                }
             }
         }
     }
 
+    
+    
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -59,17 +68,19 @@ class ListConversationTableViewController: UITableViewController {
 
         
         let conversation = conversations[indexPath.row]
-        
         cell.detailTextLabel?.text = conversation.tool.name
-        
-//        cell.detailTextLabel?.text = conversation.owner.username! + " talking to " + conversation.owner.username!
-        
          //conversation.tool.category
 
         if conversation.owner == User.currentUser() {
-            cell.textLabel?.text = /*"\(conversation.tool.category.displayName) to" +*/ conversation.notOwner.username!
+            
+            cell.textLabel?.font.fontWithSize(10)
+            cell.textLabel?.text = conversation.notOwner.username! + " talking to " + conversation.owner.username!
+            
+//            cell.textLabel?.text = /*"\(conversation.tool.category.displayName) to" +*/ conversation.notOwner.username!
         } else {
-            cell.textLabel?.text = /*"\(conversation.tool.category.displayName) from" +*/ conversation.owner.username!
+            cell.textLabel?.font.fontWithSize(10)
+            cell.textLabel?.text = conversation.owner.username! + " talking to " + conversation.notOwner.username!
+//            cell.textLabel?.text = /*"\(conversation.tool.category.displayName) from" +*/ conversation.owner.username!
         }
         return cell
     }
@@ -90,48 +101,7 @@ class ListConversationTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
 }
