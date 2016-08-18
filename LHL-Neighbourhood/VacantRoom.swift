@@ -12,12 +12,12 @@ import Parse
 class VacantRoom: PFObject, PFSubclassing {
     // Custom properties
     @NSManaged var room: String
-    @NSManaged var roomDetails: String
+    @NSManaged var roomInfo: String
    
     convenience init(room:String, description:String) {
         self.init()
         self.room = room
-        self.roomDetails = description
+        self.roomInfo = description
     }
     
     static func parseClassName() -> String {

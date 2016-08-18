@@ -26,8 +26,16 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        self.navigationController?.navigationBarHidden = true
+        self.navigationItem.hidesBackButton = true
+                UIGraphicsBeginImageContext(self.view.frame.size)
+                UIImage(named: "blur.jpg")?.drawInRect(self.view.bounds)
+                let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
         
-        self.userTypeSegmentControl.selectedSegmentIndex  = 0
+        
+
+               self.userTypeSegmentControl.selectedSegmentIndex  = 0
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
@@ -78,14 +86,27 @@ class SignInViewController: UIViewController {
     @IBAction func segmentPressed(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 1
         {
-             self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gray.jpg")!).colorWithAlphaComponent(0.9)
-            self.view?.contentMode = UIViewContentMode.ScaleAspectFill
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "silver.jpg")?.drawInRect(self.view.bounds)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
+
+//            
+//             self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gray.jpg")!).colorWithAlphaComponent(0.9)
+//            self.view?.contentMode = UIViewContentMode.ScaleAspectFit
 //            self.view.backgroundColor = UIColor.lightGrayColor()
             apartmentTextfield.placeholder = "Create Apartment"
             clearTextfields()
             
         }
         if sender.selectedSegmentIndex == 0 {
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "n3.jpg")?.drawInRect(self.view.bounds)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
+
             //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "neighbourhood.jpg")!).colorWithAlphaComponent(0.9)
             apartmentTextfield.placeholder = "Join Apartment"
             clearTextfields()
