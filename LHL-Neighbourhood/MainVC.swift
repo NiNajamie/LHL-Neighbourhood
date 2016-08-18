@@ -18,6 +18,7 @@ private var pageViewController: UIPageViewController?
         super.viewDidLoad()
         fetchFromParse { (success) in
             self.setViewControllers([self.getViewControllerAtIndex(0)] as [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            self.navigationItem.title = "\(self.postArray.count) Notices"
         }
         
         self.dataSource = self

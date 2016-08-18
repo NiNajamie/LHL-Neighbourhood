@@ -53,6 +53,8 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 for post in posts! {
                     self.postArray.append(post as! ManagerPost)
                 }
+                
+                self.navigationItem.title = "\(self.postArray.count) Posts"
                 self.tableView.reloadData()
             } else {
                 print(error)

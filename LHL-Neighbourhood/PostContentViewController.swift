@@ -23,9 +23,6 @@ class PostContentViewController: UIViewController {
     
     override func viewDidLoad() {
       super.viewDidLoad()
- 
-             self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white1.jpg")!).colorWithAlphaComponent(0.9)
-     
         
         if let post = post {
             postTitleLabel.text = post.title
