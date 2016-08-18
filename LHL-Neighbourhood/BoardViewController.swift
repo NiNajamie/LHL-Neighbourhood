@@ -20,6 +20,15 @@ class BoardViewController: UIViewController {
             }}
 
     }
+    
+    @IBAction func chatPressed(sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "ChatStoryboard", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        vc?.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        self.presentViewController(vc!, animated: true, completion: nil)
+    }
+    
     // MARK: - Navigation
     // We're gonna pass sectionKey to ListVC instead of query in this VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

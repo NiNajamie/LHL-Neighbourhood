@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIm-6O-Amt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIm-6O-Amt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wxh-sV-rAD" id="uvs-PJ-c71">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -43,6 +43,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ki1-TV-Cmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1422" y="171"/>
+        </scene>
+        <!--ChatStoryboard-->
+        <scene sceneID="eBb-Rb-8zS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatStoryboard" id="WyH-pS-VJi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lh9-IG-FJy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ow-cs-FTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106.5" y="-200"/>
         </scene>
         <!--Community Board-->
         <scene sceneID="hd2-xh-brB">
@@ -80,14 +90,6 @@
                                     <segue destination="d4w-RT-HKV" kind="push" id="Yhw-hF-Kwj"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-JY-1Dt">
-                                <rect key="frame" x="94" y="340" width="133" height="34"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Manager Board"/>
-                                <connections>
-                                    <segue destination="DJB-KR-JjJ" kind="push" id="7kU-yq-t5C"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="transparent" translatesAutoresizingMaskIntoConstraints="NO" id="rTf-1t-BWK">
                                 <rect key="frame" x="1" y="494" width="319" height="74"/>
                             </imageView>
@@ -107,6 +109,14 @@
                                     <segue destination="x8Y-Hz-zzd" kind="push" identifier="ShowBuy" id="3he-Vr-rzk"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-JY-1Dt">
+                                <rect key="frame" x="94" y="340" width="133" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Manager Board"/>
+                                <connections>
+                                    <segue destination="DJB-KR-JjJ" kind="push" id="0Qw-Gk-hVe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -119,9 +129,23 @@
                             <constraint firstItem="s2g-qn-aH9" firstAttribute="top" secondItem="x7z-EE-PrC" secondAttribute="bottom" constant="8" id="rUc-CJ-gRh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Community Board" id="UBM-OK-ipF"/>
+                    <navigationItem key="navigationItem" title="Community Board" id="UBM-OK-ipF">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="lOz-2f-AfA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jJR-uu-Ck6">
+                                <rect key="frame" x="271" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Chat"/>
+                                <connections>
+                                    <action selector="chatPressed:" destination="e8Q-G9-ucg" eventType="touchUpInside" id="xDE-6C-fzx"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="WyH-pS-VJi" kind="push" identifier="GoToChat" id="vyn-sl-QcJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="managerBoardButton" destination="MIk-JY-1Dt" id="mTB-1U-mpG"/>
+                        <outlet property="managerBoardButton" destination="MIk-JY-1Dt" id="cY4-cq-M3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PU-Bb-3Eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,7 +300,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xjl-SK-OfY" id="5s3-p8-ve0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZK-IF-9du">
@@ -420,7 +444,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzs-kG-LW9" id="wFU-Ct-A6b">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-MN-NhY">
@@ -460,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yct-SV-pJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="1083"/>
+            <point key="canvasLocation" x="725" y="1085"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9v0-F7-1NC">
@@ -1262,6 +1286,8 @@
         <image name="transparent" width="379" height="74"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CRm-vq-vne"/>
+        <segue reference="0Qw-Gk-hVe"/>
         <segue reference="3he-Vr-rzk"/>
         <segue reference="CRm-vq-vne"/>
         <segue reference="7kU-yq-t5C"/>
