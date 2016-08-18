@@ -22,7 +22,15 @@ class PostContentViewController: UIViewController {
     
     override func viewDidLoad() {
       super.viewDidLoad()
-      
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "cube.jpg")?.drawInRect(self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
+        postDescriptionLabel.alpha = 0.4;
+        //postDescriptionLabel.backgroundColor = UIColor.clearColor()
+        
         if let post = post {
             postTitleLabel.text = post.title
             postDateLabel.text = post.eventDate.description

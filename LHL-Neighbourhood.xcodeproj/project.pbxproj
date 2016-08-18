@@ -27,6 +27,7 @@
 		07A7EAAF1D604C7100A1AE33 /* VacantRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */; };
 		07E09E711D629FFB00D98187 /* Apartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E09E701D629FFB00D98187 /* Apartment.swift */; };
 		07E09E731D63C38B00D98187 /* ManagerBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */; };
+		07E09E751D65044200D98187 /* VacantRoomDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E09E741D65044200D98187 /* VacantRoomDetailVC.swift */; };
 		07FC125B1D5BD5CC00989AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC125A1D5BD5CC00989AFB /* User.swift */; };
 		5328413C7BFFD558A952C3A2 /* Pods_LHL_Neighbourhood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */; };
 		9622E3661D59436700CD1300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622E3651D59436700CD1300 /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacantRoom.swift; sourceTree = "<group>"; };
 		07E09E701D629FFB00D98187 /* Apartment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apartment.swift; sourceTree = "<group>"; };
 		07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerBoardVC.swift; sourceTree = "<group>"; };
+		07E09E741D65044200D98187 /* VacantRoomDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacantRoomDetailVC.swift; sourceTree = "<group>"; };
 		07FC125A1D5BD5CC00989AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHL_Neighbourhood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5813EFB7EB3CE609600BCECE /* Pods-LHL-Neighbourhood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHL-Neighbourhood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHL-Neighbourhood/Pods-LHL-Neighbourhood.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				071AD47C1D605AD4005A91E1 /* VacancyCell.swift */,
 				07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */,
 				07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */,
+				07E09E741D65044200D98187 /* VacantRoomDetailVC.swift */,
 			);
 			name = Vacancy;
 			sourceTree = "<group>";
@@ -329,7 +332,7 @@
 				TargetAttributes = {
 					9622E3611D59436700CD1300 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 6A3B9S8TK9;
+						DevelopmentTeam = 48L4E22UQC;
 					};
 				};
 			};
@@ -451,6 +454,7 @@
 				07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */,
 				078F59C41D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift in Sources */,
 				07A7EAA91D60430200A1AE33 /* AddRoomVacancyVC.swift in Sources */,
+				07E09E751D65044200D98187 /* VacantRoomDetailVC.swift in Sources */,
 				07A7EA9F1D5D8DB300A1AE33 /* Cell.swift in Sources */,
 				96CC91771D5AC29B002288FF /* ChatViewController.swift in Sources */,
 				07A7EAAF1D604C7100A1AE33 /* VacantRoom.swift in Sources */,
@@ -564,6 +568,7 @@
 			baseConfigurationReference = 5813EFB7EB3CE609600BCECE /* Pods-LHL-Neighbourhood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,8 +576,9 @@
 				);
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
+				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -581,14 +587,16 @@
 			baseConfigurationReference = D5574CFD094EF14A76A525B2 /* Pods-LHL-Neighbourhood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
+				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

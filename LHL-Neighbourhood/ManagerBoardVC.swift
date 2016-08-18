@@ -26,8 +26,8 @@ class ManagerBoardVC: UIViewController {
         UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, forBarMetrics: .Default)
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white2.jpg")!).colorWithAlphaComponent(0.9)
-        noticeBoardButton.setBackgroundImage(UIImage(named: "notice.jpg"), forState: UIControlState.Normal)
-        updateVacancyButton.setBackgroundImage(UIImage(named: "r1.png"), forState: UIControlState.Normal)
+//        noticeBoardButton.setBackgroundImage(UIImage(named: "notice.jpg"), forState: UIControlState.Normal)
+//        updateVacancyButton.setBackgroundImage(UIImage(named: "r1.png"), forState: UIControlState.Normal)
         getUser()
         
     }
