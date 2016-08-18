@@ -343,7 +343,6 @@
 				TargetAttributes = {
 					9622E3611D59436700CD1300 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 6A3B9S8TK9;
 					};
 				};
 			};
@@ -590,7 +589,7 @@
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood2";
+				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -611,7 +610,7 @@
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood2";
+				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

@@ -67,6 +67,8 @@ class ChatViewController: JSQMessagesViewController {
 extension ChatViewController {
     
     func setup() {
+        
+        
         let user = User.currentUser()
         self.senderId = user!.objectId! as String
         self.senderDisplayName = user?.username
@@ -99,13 +101,12 @@ extension ChatViewController {
     
     // which bubble to choose (outgoing if we are the sender, and incoming otherwise)
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
         let data = messages[indexPath.row]
         
-        switch data.sender.username! {
-        case self.senderId! :
-            print(data.sender.username, self.senderId!)
+        if data.sender.objectId != senderId {
             return self.incomingBubble
-        default:
+        } else {
             return self.outgoingBubble
         }
     }
