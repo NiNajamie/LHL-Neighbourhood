@@ -21,38 +21,28 @@ class ChatViewController: JSQMessagesViewController {
     
     //  To store messages sent and received in Parse
     var messages = [TextMessage]()
-//    var messages = [JSQMessage]()
     
     
-//    var tool: Tool!
     
     var conversation:Conversation!
 
     
     // currentUser == receiver
 //    var applicant = User.currentUser()
-    
-
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
-
         
         // LEFT SIDE == receiver
         // Set title with Poster name
-        if let postedBy = conversation.tool.postedBy {
-            if let title1 = postedBy.username {
-                title = title1
-            }
+        if let title1 = conversation.owner.username {
+            title = title1
         }
-        getMessages()
         
+        // Refresh chat feed every second
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(getMessages), userInfo: nil, repeats: true)
+        getMessages()
     }
     
     // MARK: - Parse
@@ -123,13 +113,8 @@ extension ChatViewController {
         default:
             return self.outgoingBubble
         }
-//        switch(data.senderId) {
-//        case self.senderId:
-//            return self.outgoingBubble
-//        default:
-//            return self.incomingBubble
-//        }
     }
+    
     // what to use as an avatar (for now we'll return nil and will not show avatars yet)
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
@@ -179,12 +164,9 @@ extension ChatViewController {
             }
             self.getMessages()
         }
-        
-        
-//        self.sendMessageToParse(message!)
         self.finishSendingMessage()
     }
-//    // will do nothing, but it will prevent the app from crashing.
+    // will do nothing, but it will prevent the app from crashing.
     override func didPressAccessoryButton(sender: UIButton!) {
     }
 }
