@@ -6,8 +6,12 @@ class BoardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white2.jpg")!).colorWithAlphaComponent(0.9)
+        self.navigationController?.navigationBarHidden = false
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white.jpg")!).colorWithAlphaComponent(0.9)
+        navigationController!.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     // MARK: - Navigation
     // We're gonna pass sectionKey to ListVC instead of query in this VC

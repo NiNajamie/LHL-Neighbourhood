@@ -26,7 +26,7 @@ class EmergencyContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pat1.jpg")!).colorWithAlphaComponent(0.9)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pat1.jpg")!).colorWithAlphaComponent(0.9)
         //datepicker value change
 //        postDateAndTime.addTarget(self, action: Selector("dataPickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
 
@@ -49,12 +49,12 @@ class EmergencyContentViewController: UIViewController {
                 self.showAlertOnError("Error", message: "Post could not be saved to the server")
             }
         }
-        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     @IBAction func cancelPostButtonPressed(sender: UIButton) {
-        
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     override func didReceiveMemoryWarning() {
@@ -82,7 +82,7 @@ class EmergencyContentViewController: UIViewController {
     }
     
     @IBOutlet weak var postButtonPressed: UIButton!
-    
+
 //    func datePickerChanged(datePicker:UIDatePicker) {
 //        var dateFormatter = NSDateFormatter()
 //        

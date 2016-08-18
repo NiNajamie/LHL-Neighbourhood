@@ -11,7 +11,6 @@
 		071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AD47E1D6064BA005A91E1 /* MainVC.swift */; };
 		078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */; };
 		078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */; };
-		078F59C41D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59C31D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift */; };
 		0790C7D01D596C790095AA0F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CC1D596C790095AA0F /* Fabric.framework */; };
 		0790C7D11D596C790095AA0F /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CD1D596C790095AA0F /* DigitsKit.framework */; };
 		0790C7D21D596C790095AA0F /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */; };
@@ -63,7 +62,6 @@
 		071AD47E1D6064BA005A91E1 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentViewController.swift; sourceTree = "<group>"; };
-		078F59C31D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyPostDisplayVC.swift; sourceTree = "<group>"; };
 		0790C7CC1D596C790095AA0F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		0790C7CD1D596C790095AA0F /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
@@ -151,6 +149,14 @@
 				0790C7CF1D596C790095AA0F /* TwitterCore.framework */,
 			);
 			name = Fabric;
+			sourceTree = "<group>";
+		};
+		07DFF47A1D65410700430001 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */,
+			);
+			name = Post;
 			sourceTree = "<group>";
 		};
 		07E09E6E1D628D1400D98187 /* SignUp */ = {
@@ -265,12 +271,11 @@
 		9622E3941D59499D00CD1300 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				078F59C31D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift */,
-				078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */,
 				07E09E6E1D628D1400D98187 /* SignUp */,
 				96CC91781D5ACDB9002288FF /* BoardViewController.swift */,
 				07E09E6F1D628D3400D98187 /* Vacancy */,
 				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
+				07DFF47A1D65410700430001 /* Post */,
 				071AD47E1D6064BA005A91E1 /* MainVC.swift */,
 				07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */,
 				07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */,
@@ -460,7 +465,6 @@
 				07FC125B1D5BD5CC00989AFB /* User.swift in Sources */,
 				071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */,
 				07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */,
-				078F59C41D5C2EAC00E30C51 /* EmergencyPostDisplayVC.swift in Sources */,
 				07A7EAA91D60430200A1AE33 /* AddRoomVacancyVC.swift in Sources */,
 				07E09E751D65044200D98187 /* VacantRoomDetailVC.swift in Sources */,
 				07A7EA9F1D5D8DB300A1AE33 /* Cell.swift in Sources */,
@@ -583,6 +587,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -601,6 +606,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
