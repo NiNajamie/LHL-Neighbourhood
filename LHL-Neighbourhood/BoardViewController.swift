@@ -18,15 +18,32 @@ class BoardViewController: UIViewController {
         if(user.manager){
          managerBoardButton.hidden=false
             }}
+        
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(logout))
 
+    }
+    
+    func logout() {
+        
+        User.logOutInBackgroundWithBlock() {
+            err in
+            if (err == nil) {
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }
+        }
     }
     
     @IBAction func chatPressed(sender: UIButton) {
         
         let sb = UIStoryboard(name: "ChatStoryboard", bundle: nil)
-        let vc = sb.instantiateInitialViewController()
-        vc?.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.presentViewController(vc!, animated: true, completion: nil)
+        guard let vc = sb.instantiateInitialViewController() else {
+            fatalError("couldn't find vc")
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+//        vc?.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+//        self.presentViewController(vc!, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
