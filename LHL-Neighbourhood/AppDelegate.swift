@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        let navBackgroundImage:UIImage! = UIImage(named: "blackPat.png")
-        
-        UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, forBarMetrics: .Default)
+       
         
         
         // Initialize Parse.
@@ -36,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Category.registerSubclass()
         
         Conversation.registerSubclass()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
+        //Change status bar color
+       
+
         Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
         
         

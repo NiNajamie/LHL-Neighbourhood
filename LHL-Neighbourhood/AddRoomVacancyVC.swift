@@ -21,19 +21,18 @@ class AddRoomVacancyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBarHidden = false
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white.jpg")!).colorWithAlphaComponent(0.9)
+
         navigationController!.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-        roomDetails.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.1)
+//
+//        roomDetails.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.1)
 //         addRoomVacancyButton.setBackgroundImage(UIImage(named: "plus.png"), forState: UIControlState.Normal)
             }
     
     @IBAction func AddVacancyButtonPressed(sender: UIButton) {
         let room = PFObject(className:"VacantRoom")
         room["room"] = self.roomNoTextfield.text
-        room["description"] = self.roomDetails.text
+        room["roomInfo"] = self.roomDetails.text
         
         room.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

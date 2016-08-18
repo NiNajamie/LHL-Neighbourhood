@@ -14,21 +14,21 @@ class ManagerBoardVC: UIViewController {
     
     @IBOutlet weak var updateVacancyButton: UIButton!
     
-    @IBOutlet weak var managerBoardLabel: UILabel!
+var managerBoardLabel: String!
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white2.jpg")!).colorWithAlphaComponent(0.9)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white2.jpg")!).colorWithAlphaComponent(0.9)
         self.navigationController?.navigationBarHidden = false
-        let navBackgroundImage:UIImage! = UIImage(named: "blackpat.png")
-        UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, forBarMetrics: .Default)
+//        let navBackgroundImage:UIImage! = UIImage(named: "blackpat.png")
+//        UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, forBarMetrics: .Default)
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white2.jpg")!).colorWithAlphaComponent(0.9)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white1.jpg")!).colorWithAlphaComponent(0.9)
 //        noticeBoardButton.setBackgroundImage(UIImage(named: "notice.jpg"), forState: UIControlState.Normal)
 //        updateVacancyButton.setBackgroundImage(UIImage(named: "r1.png"), forState: UIControlState.Normal)
-        getUser()
+        setNavigationBarTitle()
         
     }
     
@@ -37,11 +37,13 @@ class ManagerBoardVC: UIViewController {
 //            performSegueWithIdentifier("managerBoardToHome", sender: self)
 
     }
-    func getUser(){
+    func setNavigationBarTitle(){
         if let user = User.currentUser(){
             if let userName = user.username{
-                managerBoardLabel.text = "Welcome Manager, \(userName)"
+                managerBoardLabel = "Welcome Manager, \(userName)"
                 print(userName)}
+            
+            self.navigationItem.title = managerBoardLabel
         }
     }
     

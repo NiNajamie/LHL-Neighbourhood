@@ -193,7 +193,6 @@
 			children = (
 				0790C7CB1D596C530095AA0F /* Fabric */,
 				9622E3641D59436700CD1300 /* LHL-Neighbourhood */,
-				9622E37D1D59439D00CD1300 /* Frameworks */,
 				9622E3631D59436700CD1300 /* Products */,
 				9622E3951D5949C900CD1300 /* Assets */,
 				6E0BBABE06B9E4AB6DB6C552 /* Pods */,
@@ -238,7 +237,6 @@
 				25A80DECCA78BB80F12002B0 /* Pods_LHL_Neighbourhood.framework */,
 			);
 			name = Frameworks;
-			path = "LHL-Neighbourhood";
 			sourceTree = "<group>";
 		};
 		9622E3921D59497A00CD1300 /* Model */ = {
@@ -262,6 +260,7 @@
 			children = (
 				9622E36E1D59436700CD1300 /* LaunchScreen.storyboard */,
 				07A7EA9A1D5D5EA400A1AE33 /* Main.storyboard */,
+				9622E37D1D59439D00CD1300 /* Frameworks */,
 				96A810791D651C0E00261A9F /* ChatStoryboard.storyboard */,
 				07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */,
 			);
