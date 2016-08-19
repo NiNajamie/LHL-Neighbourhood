@@ -18,19 +18,19 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchFromParse()
-        print("I am here")
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-  
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
     return 1
     }
     
+    //Mark: TableView DataSource and Delegate methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.postArray.count
@@ -53,15 +53,11 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 for post in posts! {
                     self.postArray.append(post as! ManagerPost)
                 }
-                
                 self.navigationItem.title = "\(self.postArray.count) Posts"
                 self.tableView.reloadData()
             } else {
                 print(error)
             }
         }
-        
-        
     }
-
 }

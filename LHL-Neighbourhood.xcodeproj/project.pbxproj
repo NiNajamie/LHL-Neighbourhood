@@ -10,16 +10,15 @@
 		071AD47D1D605AD4005A91E1 /* VacancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AD47C1D605AD4005A91E1 /* VacancyCell.swift */; };
 		071AD47F1D6064BA005A91E1 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AD47E1D6064BA005A91E1 /* MainVC.swift */; };
 		078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */; };
-		078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */; };
 		0790C7D01D596C790095AA0F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CC1D596C790095AA0F /* Fabric.framework */; };
 		0790C7D11D596C790095AA0F /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CD1D596C790095AA0F /* DigitsKit.framework */; };
 		0790C7D21D596C790095AA0F /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */; };
 		0790C7D31D596C790095AA0F /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0790C7CF1D596C790095AA0F /* TwitterCore.framework */; };
+		079D217A1D66E8450034D69F /* EmergencyContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079D21791D66E8450034D69F /* EmergencyContentViewController.swift */; };
 		07A7EA9B1D5D5EA400A1AE33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07A7EA9A1D5D5EA400A1AE33 /* Main.storyboard */; };
 		07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */; };
 		07A7EA9F1D5D8DB300A1AE33 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */; };
 		07A7EAA11D5DA1E500A1AE33 /* ManagerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA01D5DA1E500A1AE33 /* ManagerPost.swift */; };
-		07A7EAA31D5E565200A1AE33 /* EmergencyPostPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */; };
 		07A7EAA51D5E65EC00A1AE33 /* PostContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */; };
 		07A7EAA91D60430200A1AE33 /* AddRoomVacancyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */; };
 		07A7EAAB1D60432A00A1AE33 /* VancancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */; };
@@ -61,16 +60,15 @@
 		071AD47C1D605AD4005A91E1 /* VacancyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacancyCell.swift; sourceTree = "<group>"; };
 		071AD47E1D6064BA005A91E1 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		078F59BF1D5BF0C100E30C51 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentViewController.swift; sourceTree = "<group>"; };
 		0790C7CC1D596C790095AA0F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		0790C7CD1D596C790095AA0F /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		0790C7CE1D596C790095AA0F /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		0790C7CF1D596C790095AA0F /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		079D21791D66E8450034D69F /* EmergencyContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentViewController.swift; sourceTree = "<group>"; };
 		07A7EA9A1D5D5EA400A1AE33 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		07A7EAA01D5DA1E500A1AE33 /* ManagerPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPost.swift; sourceTree = "<group>"; };
-		07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyPostPagesVC.swift; sourceTree = "<group>"; };
 		07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostContentViewController.swift; sourceTree = "<group>"; };
 		07A7EAA81D60430200A1AE33 /* AddRoomVacancyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRoomVacancyVC.swift; sourceTree = "<group>"; };
 		07A7EAAA1D60432A00A1AE33 /* VancancyListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VancancyListVC.swift; sourceTree = "<group>"; };
@@ -151,10 +149,33 @@
 			name = Fabric;
 			sourceTree = "<group>";
 		};
+		079D217B1D6799810034D69F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
+				96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */,
+				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		079D217C1D6799970034D69F /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */,
+				96CC91781D5ACDB9002288FF /* BoardViewController.swift */,
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
 		07DFF47A1D65410700430001 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				078F59C11D5C2E8600E30C51 /* EmergencyContentViewController.swift */,
+				071AD47E1D6064BA005A91E1 /* MainVC.swift */,
+				07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */,
+				079D21791D66E8450034D69F /* EmergencyContentViewController.swift */,
+				07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */,
+				07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -210,7 +231,6 @@
 		9622E3641D59436700CD1300 /* LHL-Neighbourhood */ = {
 			isa = PBXGroup;
 			children = (
-				96CC91731D5AC058002288FF /* Chat */,
 				9622E3941D59499D00CD1300 /* Controller */,
 				9622E3921D59497A00CD1300 /* Model */,
 				9622E3931D59498100CD1300 /* View */,
@@ -250,7 +270,6 @@
 				07A7EAAE1D604C7100A1AE33 /* VacantRoom.swift */,
 				07FC125A1D5BD5CC00989AFB /* User.swift */,
 				96AA0BB11D5CFBE300732DF4 /* Tool.swift */,
-				07A7EA9E1D5D8DB300A1AE33 /* Cell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -262,7 +281,6 @@
 				07A7EA9A1D5D5EA400A1AE33 /* Main.storyboard */,
 				9622E37D1D59439D00CD1300 /* Frameworks */,
 				96A810791D651C0E00261A9F /* ChatStoryboard.storyboard */,
-				07A7EAA21D5E565200A1AE33 /* EmergencyPostPagesVC.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -270,17 +288,12 @@
 		9622E3941D59499D00CD1300 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				079D217C1D6799970034D69F /* Board */,
 				07E09E6E1D628D1400D98187 /* SignUp */,
-				96CC91781D5ACDB9002288FF /* BoardViewController.swift */,
+				96CC91731D5AC058002288FF /* Chat */,
 				07E09E6F1D628D3400D98187 /* Vacancy */,
-				96CC917A1D5ACE25002288FF /* ListOfToolTableViewController.swift */,
 				07DFF47A1D65410700430001 /* Post */,
-				071AD47E1D6064BA005A91E1 /* MainVC.swift */,
-				07A7EA9C1D5D7B8000A1AE33 /* PostDetailViewController.swift */,
-				07A7EAA41D5E65EC00A1AE33 /* PostContentViewController.swift */,
-				96CC917C1D5ACE6C002288FF /* DetailOfToolViewController.swift */,
-				96AA0BAF1D5CF8E500732DF4 /* AddToolViewController.swift */,
-				07E09E721D63C38B00D98187 /* ManagerBoardVC.swift */,
+				079D217B1D6799810034D69F /* Tool */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 				TargetAttributes = {
 					9622E3611D59436700CD1300 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 48L4E22UQC;
 					};
 				};
 			};
@@ -453,10 +467,10 @@
 				967F3E671D612FAF0062B71A /* Category.swift in Sources */,
 				071AD47D1D605AD4005A91E1 /* VacancyCell.swift in Sources */,
 				9622E3971D594B4B00CD1300 /* SignInViewController.swift in Sources */,
-				078F59C21D5C2E8600E30C51 /* EmergencyContentViewController.swift in Sources */,
 				07A7EA9D1D5D7B8000A1AE33 /* PostDetailViewController.swift in Sources */,
 				96A810781D65011900261A9F /* ListConversationTableViewController.swift in Sources */,
 				96CC917B1D5ACE25002288FF /* ListOfToolTableViewController.swift in Sources */,
+				079D217A1D66E8450034D69F /* EmergencyContentViewController.swift in Sources */,
 				96EE6FD41D62C447007C8626 /* Conversation.swift in Sources */,
 				96CC91751D5AC1DE002288FF /* TextMessage.swift in Sources */,
 				07E09E731D63C38B00D98187 /* ManagerBoardVC.swift in Sources */,
@@ -472,7 +486,6 @@
 				078F59C01D5BF0C100E30C51 /* LoginViewController.swift in Sources */,
 				96CC91791D5ACDB9002288FF /* BoardViewController.swift in Sources */,
 				07E09E711D629FFB00D98187 /* Apartment.swift in Sources */,
-				07A7EAA31D5E565200A1AE33 /* EmergencyPostPagesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +601,7 @@
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
+				PRODUCT_BUNDLE_IDENTIFIER = "R.LHL-Neighbourhood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -609,7 +622,7 @@
 				INFOPLIST_FILE = "LHL-Neighbourhood/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "A.LHL-Neighbourhood";
+				PRODUCT_BUNDLE_IDENTIFIER = "R.LHL-Neighbourhood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

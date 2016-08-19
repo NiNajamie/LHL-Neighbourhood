@@ -71,8 +71,6 @@ private var pageViewController: UIPageViewController?
             pageContentViewController.setPost(post, pageIndex: index)
             return pageContentViewController
         }
-        
-        
     }
     
     func fetchFromParse(completion:(success:Bool) -> ()) {
@@ -83,14 +81,12 @@ private var pageViewController: UIPageViewController?
                     self.postArray = posts
                     completion(success: true)
                 }
-                
             } else {
                 print(error)
             }
         }
     }
     
-
     // MARK: - Page Indicator
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
        return self.postArray.count

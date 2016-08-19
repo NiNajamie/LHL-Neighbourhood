@@ -30,15 +30,12 @@ class PostContentViewController: UIViewController {
             postedByLabel.text = post.managerName
             postDescriptionTextView.text = post.postDescription
         }
-
-        
     }
     
     func setPost(post:ManagerPost, pageIndex:Int){
         self.post = post
         self.pageIndex = pageIndex
     }
-    
     
     func clearBackground(){
         postDescriptionTextView.backgroundColor = UIColor.clearColor()
@@ -47,12 +44,7 @@ class PostContentViewController: UIViewController {
         postedByLabel.backgroundColor = UIColor.clearColor()
         postDescriptionTextView.textColor = UIColor.blackColor()
         postTitleLabel.backgroundColor = UIColor(red: 0.0431, green: 0.0824, blue: 0.4392, alpha: 1.0)
-
         postDateLabel.backgroundColor = UIColor(red: 0.0431, green: 0.0824, blue: 0.4392, alpha: 1.0)
-
         postedByLabel.backgroundColor = UIColor(red: 0.0431, green: 0.0824, blue: 0.4392, alpha: 1.0)
-
-        
-    
     }
    }

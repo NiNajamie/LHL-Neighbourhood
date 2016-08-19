@@ -16,20 +16,13 @@ class EmergencyContentViewController: UIViewController {
 
 
     @IBOutlet weak var postDateAndTime: UIDatePicker!
-    
     @IBOutlet weak var postDescription: UITextView!
- 
     @IBOutlet weak var postedByManager: UITextField!
     
     let postEventDate = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pat1.jpg")!).colorWithAlphaComponent(0.9)
-        //datepicker value change
-//        postDateAndTime.addTarget(self, action: Selector("dataPickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-
     }
 
     @IBAction func savePostButtonPressed(sender: UIButton) {
@@ -82,15 +75,4 @@ class EmergencyContentViewController: UIViewController {
     }
     
     @IBOutlet weak var postButtonPressed: UIButton!
-
-//    func datePickerChanged(datePicker:UIDatePicker) {
-//        var dateFormatter = NSDateFormatter()
-//        
-//        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-//        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-//        
-//        var strDate = dateFormatter.stringFromDate(datePicker.date)
-//        dateLabel.text = strDate
-//    }
-    
 }
