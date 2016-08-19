@@ -21,16 +21,13 @@ class VancancyListVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationController?.navigationBarHidden = false
         self.fetchFromParse()
         tableView.backgroundView = UIImageView(image: UIImage(named: "butterfly.jpg"))
-
-//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white.jpg")!).colorWithAlphaComponent(0.9)
-    
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
+    //MARK: TableView DataSource and Delegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
@@ -64,8 +61,6 @@ class VancancyListVC: UIViewController, UITableViewDataSource, UITableViewDelega
                 print(error)
             }
         }
-        
-        
     }
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -76,11 +71,8 @@ class VancancyListVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let destinationvc = segue.destinationViewController as? VacantRoomDetailVC,
             let indexPath = tableView.indexPathForSelectedRow {
-            
             let room = vacancyArray[indexPath.row]
-            
             destinationvc.room = room
-            
         }
     }
 

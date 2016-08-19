@@ -16,8 +16,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.hidesBackButton = false
          self.navigationController?.navigationBarHidden = false
+        
         navigationController!.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationController!.navigationBar.barTintColor = UIColor(red: 0.0431, green: 0.0824, blue: 0.4392, alpha: 1.0)
@@ -27,18 +29,11 @@ class LoginViewController: UIViewController {
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
-
-//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "n3.jpg")!).colorWithAlphaComponent(0.5)
-        
-
-
-        // Do any additional setup after loading the view.
     }
 
     
     @IBAction func loginButtonPressed(sender: UIButton) {
-        //CHECK IF EMPTY
-        
+        //CHECK IF FIELDS EMPTY
         if (password.text?.characters.count == 0 || userName.text?.characters.count == 0){
             self.showAlertOnError("Error", message: "Fields can not be empty!!!" )
         }
@@ -47,9 +42,6 @@ class LoginViewController: UIViewController {
             if let loggedInUser = user
             {
                 print(loggedInUser)
-                
-                //                var isManager = loggedInUser["manager"]
-                //                if let isTrue == isManager{
                 if((loggedInUser["manager"]) as! Bool == true){
                     self.performSegueTo("segueToManagerBoard")}else{
                     self.performSegueTo("segueToHome")
@@ -63,16 +55,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    override  func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func performSegueTo(viewcontroller: String) {
         
         performSegueWithIdentifier(viewcontroller, sender: self)
     }
-
     
     func showAlertOnError(title: String, message: String){
     
@@ -81,7 +67,6 @@ class LoginViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
-
 
 extension UINavigationController {    
     override public func preferredStatusBarStyle() -> UIStatusBarStyle {

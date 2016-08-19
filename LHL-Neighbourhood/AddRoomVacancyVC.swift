@@ -20,13 +20,8 @@ class AddRoomVacancyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         navigationController!.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//
-//        roomDetails.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.1)
-//         addRoomVacancyButton.setBackgroundImage(UIImage(named: "plus.png"), forState: UIControlState.Normal)
             }
     
     @IBAction func AddVacancyButtonPressed(sender: UIButton) {
