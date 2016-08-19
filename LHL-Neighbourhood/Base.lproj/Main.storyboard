@@ -703,7 +703,7 @@
         <!--Add Emergency-->
         <scene sceneID="COO-9X-A89">
             <objects>
-                <viewController storyboardIdentifier="ContentViewController" id="dMo-yH-J2e" customClass="EmergencyContentViewController" customModule="LHL_Neighbourhood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" id="dMo-yH-J2e" customClass="PostDisplayViewController" customModule="LHL_Neighbourhood" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tSO-Vf-Pdw"/>
                         <viewControllerLayoutGuide type="bottom" id="pcC-JU-TSl"/>

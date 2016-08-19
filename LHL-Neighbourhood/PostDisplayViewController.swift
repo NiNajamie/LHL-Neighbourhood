@@ -1,5 +1,5 @@
 //
-//  EmergencyContentViewController.swift
+//  PostDispalyViewController.swift
 //  LHL-Neighbourhood
 //
 //  Created by reena on 10/08/16.
@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EmergencyContentViewController: UIViewController {
+class PostDisplayViewController: UIViewController {
   
   
     @IBOutlet weak var postTitle: UITextField!

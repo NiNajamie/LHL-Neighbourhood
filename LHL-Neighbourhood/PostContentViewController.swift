@@ -1,5 +1,5 @@
 //
-//  PostContentViewController.swift
+//  ContentViewController.swift
 //  LHL-Neighbourhood
 //
 //  Created by reena on 12/08/16.
