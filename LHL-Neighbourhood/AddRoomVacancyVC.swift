@@ -24,8 +24,9 @@ class AddRoomVacancyVC: UIViewController {
             [NSForegroundColorAttributeName: UIColor.whiteColor()]
             }
     
+    // CR: method name
     @IBAction func AddVacancyButtonPressed(sender: UIButton) {
-        let room = PFObject(className:"VacantRoom")
+        let room = PFObject(className:"VacantRoom") // CR: Subclass PFObject
         room["room"] = self.roomNoTextfield.text
         room["roomInfo"] = self.roomDetails.text
         
@@ -50,7 +51,7 @@ class AddRoomVacancyVC: UIViewController {
     }
     
     func showAlertOnError(title: String, message: String){
-        
+        // CR: DRY!
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -73,3 +74,17 @@ class AddRoomVacancyVC: UIViewController {
     }
    
 }
+// CR: suggestion for DRY.
+//extension UIViewController {
+//    func showAlertOnSuccessThenDisappear(title: String, message: String) {
+//        
+//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//        let delay = 1.9 * Double(NSEC_PER_SEC)
+//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//        dispatch_after(time, dispatch_get_main_queue(), {
+//            alertController.dismissViewControllerAnimated(true, completion: nil)
+//        })
+//    }
+//}
+

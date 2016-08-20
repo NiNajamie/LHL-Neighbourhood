@@ -27,7 +27,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-    return 1
+    return 1 // CR: not needed, default is 1.
     }
     
     //Mark: TableView DataSource and Delegate methods
@@ -49,7 +49,18 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func fetchFromParse() {
         let query = PFQuery(className:"ManagerPost")
         query.findObjectsInBackgroundWithBlock { (posts, error) -> Void in
-            if error == nil {
+            
+            if let posts = posts {
+                for post in posts {
+                    self.postArray.append(post as! ManagerPost)
+                }
+                self.navigationItem.title = "\(self.postArray.count) Posts"
+                self.tableView.reloadData()
+            } else {
+                print(error)
+            }
+            
+            if error == nil { // CR: if-let posts rather than checking error.
                 for post in posts! {
                     self.postArray.append(post as! ManagerPost)
                 }

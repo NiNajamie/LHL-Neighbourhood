@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //initialsize Parse
         UIApplication.sharedApplication().statusBarStyle = .LightContent
 
-        Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U")
+        Parse.setApplicationId("630Hhc8GeD5A7Oj9PUu6s7aiBLzPcWT6X8MPCgEI", clientKey: "qIkc16ORUw7L5D42pZF6JZagB6PiKEMgakAt0P0U") // CR: keys in git
 
         
         return true
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Section.registerSubclass()
         Category.registerSubclass()
         Conversation.registerSubclass()
-        }
+        } // CR: good!
 
 }
 

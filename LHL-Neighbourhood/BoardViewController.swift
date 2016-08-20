@@ -10,6 +10,8 @@ class BoardViewController: UIViewController {
         
 //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white2.jpg")!).colorWithAlphaComponent(0.9)
         self.navigationController?.navigationBarHidden = false
+        // CR: navigation bar still showing when you come back to the sign up screen.
+        
 //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "white.jpg")!).colorWithAlphaComponent(0.9)
         navigationController!.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -30,6 +32,7 @@ class BoardViewController: UIViewController {
             err in
             if (err == nil) {
                 self.navigationController?.popToRootViewControllerAnimated(true)
+                // CR: no error handling from a user perspective.
             }
         }
     }
@@ -44,15 +47,45 @@ class BoardViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
 //        vc?.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
 //        self.presentViewController(vc!, animated: true, completion: nil)
+        // CR: lots of commented out code.
     }
+    
+    
+    enum SectionSegue: String {
+        case ShowShare = "ShowShare"
+        case ShowBuy = "ShowBuy"
+        case ShowSell = "ShowSell"
+        
+        func key() -> String {
+            switch self {
+            case .ShowBuy:
+                return "buy"
+            case .ShowSell:
+                return "sell"
+            case .ShowShare:
+                return "share"
+            }
+        }
+        
+        func title() -> String {
+            return "title"
+        }
+    }
+    
     
     // MARK: - Navigation
     // We're gonna pass sectionKey to ListVC instead of query in this VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if let listVC = segue.destinationViewController as? ListOfToolTableViewController {
+        if let listVC = segue.destinationViewController as? ListOfToolTableViewController, let identifier = segue.identifier {
+            
+//            if let sectionSegue = SectionSegue(rawValue: identifier) {
+//                listVC.sectionKey = sectionSegue.key()
+//                listVC.title = sectionSegue.title()
+//            }
+            
             switch segue.identifier ?? "" {
-            case "ShowShare":
+            case "ShowShare": // CR: do this with an enum?
                 listVC.sectionKey = "share"
                 listVC.title = "List of Share Items"
             case "ShowBuy":

@@ -160,7 +160,9 @@ extension ChatViewController {
                     print("Error for saving")
                 }
             }
-            self.getMessages()
+            self.messages.append(msg)
+//            self.getMessages()
+            // CR: don't need to go to network here, just add to array.
         }
         self.finishSendingMessage()
     }

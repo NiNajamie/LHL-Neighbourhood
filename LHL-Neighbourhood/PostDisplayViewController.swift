@@ -60,7 +60,7 @@ class PostDisplayViewController: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
-    }
+    } // CR: seriously?
 
     func showAlertOnSuccessThenDisappear(title: String, message: String){
         

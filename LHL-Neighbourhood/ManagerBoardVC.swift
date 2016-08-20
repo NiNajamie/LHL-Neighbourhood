@@ -14,7 +14,8 @@ class ManagerBoardVC: UIViewController {
     
     @IBOutlet weak var updateVacancyButton: UIButton!
     
-var managerBoardLabel: String!
+    var managerBoardLabel: String!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -26,7 +27,7 @@ var managerBoardLabel: String!
     }
     
     @IBAction func communityButtonPressed(sender: UIButton) {
-    }
+    } // CR: unused button action?
     
     func setNavigationBarTitle(){
         if let user = User.currentUser(){
