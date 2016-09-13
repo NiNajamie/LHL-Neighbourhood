@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
             [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationController!.navigationBar.barTintColor = UIColor(red: 0.0431, green: 0.0824, blue: 0.4392, alpha: 1.0)
 
+        // CR: DRY!
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "n3.jpg")?.drawInRect(self.view.bounds)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()

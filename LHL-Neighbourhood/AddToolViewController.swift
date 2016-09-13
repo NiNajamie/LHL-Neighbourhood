@@ -114,8 +114,9 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
-        if (PFUser.currentUser() == nil) {
+        guard let user = PFUser.currentUser() else {
             print("User is nil")
+            return
         }
         
         let tool = Tool()
@@ -125,7 +126,7 @@ class AddToolViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         tool.section = self.sections[categoryPickerView.selectedRowInComponent(1)]
         tool.availability = availabilityTextField.text ?? ""
         tool.price = priceTextField.text ?? "$0"
-        tool.postedBy = PFUser.currentUser()!
+        tool.postedBy = user // CR: why not if-let CRASH HERE?
         
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.25)
         let imageFile = PFFile(data: imageData!)

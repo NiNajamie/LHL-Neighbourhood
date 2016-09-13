@@ -14,32 +14,34 @@ import IQKeyboardManagerSwift
 
 class SignInViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var fullnameTextfield: UITextField!
     @IBOutlet weak var userNameTextfield: UITextField!
-    
     @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var apartmentTextfield: UITextField!
+    
     @IBOutlet weak var userTypeSegmentControl: UISegmentedControl!
     
-    @IBOutlet weak var apartmentTextfield: UITextField!
-    override func viewDidLoad() {
+    override func viewDidLoad() { // CR: Formatting
         super.viewDidLoad()
+        
        self.navigationController?.navigationBarHidden = true
-        self.navigationItem.hidesBackButton = true
+        // CR: navigationController is probably nil at this point.
+        // CR: switch this to viewWillAppear.
+        
+        self.navigationItem.hidesBackButton = true // CR: Formatting
                 UIGraphicsBeginImageContext(self.view.frame.size)
                 UIImage(named: "blur.jpg")?.drawInRect(self.view.bounds)
                 let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
-        
+        // CR: use a "background" image view.
         
 
                self.userTypeSegmentControl.selectedSegmentIndex  = 0
         // will enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-        
+        // CR: understand roughly what this does.
     }
     //Mark: Login / Sign Up Action
     @IBAction func loginPressed(sender: UIButton) {
@@ -51,11 +53,14 @@ class SignInViewController: UIViewController {
         
         //CHECK IF FIELDS ARE EMPTY
         
+        // CR: validateForm() -> Bool method.
         if (passwordTextfield.text?.characters.count == 0 || userNameTextfield.text?.characters.count == 0 || fullnameTextfield.text?.characters.count == 0 || apartmentTextfield.text?.characters.count == 0 ){
+            
             self.showAlertOnError("Error", message: "Fields can not be empty!!!")
-        }
-            //Fileds not empty
-        else{
+            
+        } else{ //Fileds not empty
+            
+            // CR: the if-else blocks separated makes it hard to read as one thing.
             if(self.userTypeSegmentControl.selectedSegmentIndex == 0){
                 
                 self.apartmentAlreadyExist {
@@ -79,7 +84,7 @@ class SignInViewController: UIViewController {
                     }
                 }
             }
-
+            // CR: Generally, button action should have simple logic that dispatches to more complex methods.
         }
     }
     
@@ -91,6 +96,7 @@ class SignInViewController: UIViewController {
             let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             self.view.backgroundColor = UIColor(patternImage: image).colorWithAlphaComponent(0.9)
+            // CR: don't repeat yourself. configure(segment: .Create) or .Join
 
 //            
 //             self.view.backgroundColor = UIColor(patternImage: UIImage(named: "gray.jpg")!).colorWithAlphaComponent(0.9)
@@ -117,11 +123,13 @@ class SignInViewController: UIViewController {
     
     //resign as first responder
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        userNameTextfield.resignFirstResponder()
-        passwordTextfield.resignFirstResponder()
+//        userNameTextfield.resignFirstResponder()
+//        passwordTextfield.resignFirstResponder()
+        self.view.endEditing(true)
+        // CR: end editing
     }
     
-    func performSegueToHomepage() {
+    func performSegueToHomepage() { // CR: Method name. Don't say how, just say what. "showHomepage()"
         performSegueWithIdentifier("segueToLoginVC", sender: self)
     }
     
@@ -134,7 +142,7 @@ class SignInViewController: UIViewController {
         dispatch_after(time, dispatch_get_main_queue(), {
             alertController.dismissViewControllerAnimated(true, completion: nil)
         })
-        
+        // CR: DRY!
     }
     
     func showAlertOnError(title: String, message: String){
@@ -167,42 +175,45 @@ class SignInViewController: UIViewController {
     
     func saveUser(apartment: Apartment?, isManager:Bool) {
         self.usernameIsTaken { isTaken in
+            
             if (isTaken) {
-                //alert
                 self.showAlertOnError("Invalid Username", message: "User Name is taken")
                 self.clearTextfields()
-            } else {
-                let user = User()
-                user.username = self.userNameTextfield.text!
-                user.password = self.passwordTextfield.text!
-                user["residentName"] = self.fullnameTextfield.text!
-                user["manager"] = isManager
                 
-                user.signUpInBackgroundWithBlock { result, error in
-                    if error == nil && result == true {
-                        print("user signup SAVED OBJECT")
+                return
+                // CR: Exit early
+            }
+            
+            let user = User()
+            user.username = self.userNameTextfield.text!
+            user.password = self.passwordTextfield.text!
+            user["residentName"] = self.fullnameTextfield.text!
+            user["manager"] = isManager
+            
+            user.signUpInBackgroundWithBlock { result, error in
+                if error == nil && result == true {
+                    print("user signup SAVED OBJECT")
+                    
+                    
+                    if let apartment = apartment { // user is not a manager, apartment exists
+                        user.apartment = apartment
+                        let message = "Successful signup!"
                         
-                        
-                        if let apartment = apartment { // user is not a manager, apartment exists
-                            user.apartment = apartment
-                            let message = "Successful signup!"
-                            
-                            user.saveInBackgroundWithBlock { result, error in
-                                //GO TO HOMEPAGE perform segue to Login
-                                self.performSegueToHomepage()
-                                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
-                            }
-                        } else {
-                            //if apartment doesn't exist create
-                            self.createApartmentForManager(user) { ap in
-                                user.apartment = ap
-                                let message = "Successful SignUp - Apartment created :)"
-                                user.saveInBackgroundWithBlock { result, error in
-                                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
-                                }
-                            }
+                        user.saveInBackgroundWithBlock { result, error in
+                            //GO TO HOMEPAGE perform segue to Login
                             self.performSegueToHomepage()
+                            self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
                         }
+                    } else {
+                        //if apartment doesn't exist create
+                        self.createApartmentForManager(user) { ap in
+                            user.apartment = ap
+                            let message = "Successful SignUp - Apartment created :)"
+                            user.saveInBackgroundWithBlock { result, error in
+                                self.showAlertOnSuccessThenDisappear(self.sayWelcomeUser(self.fullnameTextfield.text!),message: message)
+                            }
+                        }
+                        self.performSegueToHomepage()
                     }
                 }
             }
@@ -264,7 +275,7 @@ class SignInViewController: UIViewController {
         userNameTextfield.text = ""
         passwordTextfield.text = ""
     }
-    
+    // CR: Parse getting its tendrils in all of our code.
     
 }
 //extension UIView {

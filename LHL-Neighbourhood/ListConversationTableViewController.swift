@@ -35,19 +35,12 @@ class ListConversationTableViewController: UITableViewController {
         query.findObjectsInBackgroundWithBlock {(conversations, error) -> Void in
 
             if let conversations = conversations as? [Conversation] {
-                self.conversations = conversations
-                
-                // Find "userA talking to userA" and remove it from the list
-                for i in 0..<self.conversations.count {
 
-                    if self.conversations[i].notOwner.username! == self.conversations[i].owner.username! {
-//                        if let index = self.conversations.indexOf(self.conversations[i]) {
-                            self.conversations.removeAtIndex(i)
-                            break
-//                        }
-                    }
+                self.conversations = conversations.filter {
+                    item in
+                    return item.notOwner != item.owner
                 }
-                
+                // CR: filter instead of for loop CRASH HERE:
             }
         }
     }

@@ -29,7 +29,7 @@ class ListOfToolTableViewController: UITableViewController {
         // includeKeys can fetch items (better finish before nextVC loaded)
         
         
-        let toolQuery = Tool.query()
+        let toolQuery = Tool.query() // CR: consistant optional handling.
         toolQuery?.whereKey("section", matchesQuery: sectionQuery)
         toolQuery?.includeKeys(["category", "section", "postedBy"])
         toolQuery?.findObjectsInBackgroundWithBlock({ (tools, error) in
